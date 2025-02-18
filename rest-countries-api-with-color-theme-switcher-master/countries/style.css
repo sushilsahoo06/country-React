@@ -4,3 +4,18 @@
 body{
   font-family: Nunito,sans-serif;
 }
+.title{
+  font-weight: 800;
+}
+.header{
+  box-shadow:0 2px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-inline:24px;
+}
+.header-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin-inline: auto;
+  background-color: hsl(0, 0%, 100%); 
+}
