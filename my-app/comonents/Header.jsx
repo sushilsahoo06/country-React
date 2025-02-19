@@ -1,14 +1,12 @@
-
+import "../style/style.css"
 const Header=()=> {
   return (
-    <header className="header-container">
-      <div className="header-content">
-        <h2 className="title"><a href="/">where in the world</a></h2>
-        <p className="theme-changer">
-          <i className="fa-regular fa-moon">Dark Mode&nbsp;&nbsp;</i>
-        </p>
-      </div>
-    </header>
+    <header className="header">
+    <div className="header-content">
+      <h2 className="title">Where is the world?</h2>
+      <p><i className="fa-regular fa-moon"></i>&nbsp;&nbsp;Dark Mode</p>
+    </div>
+  </header>
   )
 }
 
