@@ -7,9 +7,7 @@ body {
   margin: 0;
   padding: 0;
 }
-main {
-  padding: 24px;
-}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -28,4 +26,31 @@ a {
   max-width: 1300px;
   margin-inline: auto;
   background-color: hsl(0, 0%, 100%);
+}
+.back-button{
+  padding: 8px 32px;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.country-daitels{
+  display: flex;
+  gap: 60px;
+  margin-top: 60px;
+}
+.detail-text h1{
+  
+}
+.detail-text{
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  column-gap: 64px;
+  max-height: 180px;
+  flex-wrap: wrap;
+}
+.country-daitels img{
+  width: 450px;
+}
+.detail-text p{
+  margin: 0;
 }
