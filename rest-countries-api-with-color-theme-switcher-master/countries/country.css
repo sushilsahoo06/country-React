@@ -7,7 +7,9 @@ body {
   margin: 0;
   padding: 0;
 }
-
+main{
+  padding: 24px;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -35,22 +37,32 @@ a {
 .country-daitels{
   display: flex;
   gap: 60px;
-  margin-top: 60px;
+  margin-top: 50px;
+  margin-left: 35px;
 }
-.detail-text h1{
-  
+.detail-text-container h1{
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .detail-text{
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
-  column-gap: 64px;
-  max-height: 180px;
   flex-wrap: wrap;
+  row-gap: 12px;
+  column-gap: 35px;
+  max-height: 180px;
+ ;
 }
 .country-daitels img{
   width: 450px;
 }
 .detail-text p{
   margin: 0;
+}
+.boader-country a{
+  padding: 8px 30px;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-inline: 5px;
+  font-size: 14px;
 }
