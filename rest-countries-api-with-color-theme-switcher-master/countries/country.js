@@ -6,7 +6,6 @@ const detailsText = document.querySelector(".detail-text");
 fetch("https://restcountries.com/v3.1/all")
   .then((req) => req.json())
   .then((data) => {
-    console.log(data[0]);
     const country = data.find(c => c.name.common === countryName);
     
     if (country) {
@@ -25,6 +24,16 @@ fetch("https://restcountries.com/v3.1/all")
       `;
     } else {
       console.log("Country not found");
+    }
+
+    if(country){
+      country.forEach((boader) => {
+        // fetch(`https://restcountries.com/v3.1/alpha/${boader}`).then((req)=>req.json())
+        // .then(([boadersCountry])=>{
+        //   console.log(boadersCountry)
+        // })
+        console.log(boader)
+      });
     }
   })
   .catch((e) => console.log(e));

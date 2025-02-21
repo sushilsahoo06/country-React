@@ -3,6 +3,7 @@ fetch("https://restcountries.com/v3.1/all")
   .then((req)=>req.json())
   .then((data)=>{
     data.forEach((country) => {
+      console.log(country.borders)
       const countryCard=document.createElement('a');
       countryCard.classList.add("country-card");
       countryCard.href = `country.html?name=${encodeURIComponent(country.name.common)}`;
