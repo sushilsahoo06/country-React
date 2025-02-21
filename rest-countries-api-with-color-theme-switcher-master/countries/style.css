@@ -78,3 +78,19 @@ a {
 .card-text p b {
   opacity: 0.8;
 }
+.input-group input{
+  max-width: 350px;
+}
+
+.dropdown-menu {
+  background-color: white !important;
+  border: 1px solid #ddd; /* Optional: Border for visibility */
+}
+
+.dropdown-item {
+  color: black !important;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa !important; /* Light gray on hover */
+}
