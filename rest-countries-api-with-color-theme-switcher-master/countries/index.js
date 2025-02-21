@@ -5,7 +5,7 @@ fetch("https://restcountries.com/v3.1/all")
     data.forEach((country) => {
       const countryCard=document.createElement('a');
       countryCard.classList.add("country-card");
-      countryCard.href = `/country.html?name=${encodeURIComponent(country.name.common)}`;
+      countryCard.href = `country.html?name=${encodeURIComponent(country.name.common)}`;
       const cardHTML=`
       <img src=${country.flags.svg} alt="country-img">
         <div class="card-text">
