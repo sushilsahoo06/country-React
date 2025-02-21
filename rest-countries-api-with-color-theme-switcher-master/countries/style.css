@@ -22,6 +22,7 @@ a {
   padding-inline: 24px;
 }
 .header-content {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,15 +83,9 @@ a {
   max-width: 350px;
 }
 
-.dropdown-menu {
-  background-color: white !important;
-  border: 1px solid #ddd; /* Optional: Border for visibility */
-}
-
-.dropdown-item {
-  color: black !important;
-}
-
-.dropdown-item:hover {
-  background-color: #f8f9fa !important; /* Light gray on hover */
+.input-group{
+  margin-top: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
 }
