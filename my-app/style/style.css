@@ -67,10 +67,14 @@ a {
   margin-inline: 5px;
   font-size: 14px;
 }
-.input-group{
+.input-group-head{
   margin-top: 30px !important;
-  
+  display: flex;
+  margin-inline: 50px
 }
 .header{
   margin-top: 30px;
+}
+.form-control{
+  max-width: 600px;
 }
