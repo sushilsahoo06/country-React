@@ -2,7 +2,7 @@ import "../style/style.css";
 
 export default function Card({ flags, name, population, region, capital }) {
   return (
-    <div className="countries-container">
+    
       <a href="/#" className="country-card">
         <img src={flags} alt={name} />
         <div className="card-text">
@@ -12,7 +12,7 @@ export default function Card({ flags, name, population, region, capital }) {
           <p><b>Capital:</b> {capital ? capital : "N/A"}</p>
         </div>
       </a>
-    </div>
+    
   );
 }
 

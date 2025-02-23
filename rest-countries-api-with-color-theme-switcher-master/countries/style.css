@@ -44,7 +44,7 @@ a {
 
 /* Country card styling */
 .country-card {
-  display: inline-block;
+  display:flex;
   width: 200px;
   height: auto;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);

@@ -38,14 +38,15 @@ a {
   margin-top: 16px;
   display: flex;
   flex-direction: column; /* Ensures items are stacked vertically */
-  gap: 16px; /* Adds spacing between rows */
+  gap: 40px; /* Adds spacing between rows */
   align-items: center; /* Centers items horizontally */
 }
 /* Country card styling */
 .country-card {
+  
   display: inline-block;
   width: 200px;
-  height: auto;
+  height: 326px;
   box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
