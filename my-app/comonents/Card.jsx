@@ -3,7 +3,7 @@ import "../style/style.css";
 export default function Card({ flags, name, population, region, capital }) {
   return (
     
-      <a href="/#" className="country-card">
+      <a href={`/country?name=${name}`} className="country-card">
         <img src={flags} alt={name} />
         <div className="card-text">
           <h3>{name}</h3>
