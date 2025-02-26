@@ -3,8 +3,11 @@ import { useEffect, useState } from "react"
 
 export const CountrtDetails = () => {
   const countryName = new URLSearchParams(window.location.search).get('name');
-  const[countries,setCountries]=useState([]);
+  const[countries,setCountries]=useState(null);
   const [error ,setError]=useState(null);
+  const [loading, setLoading] = useState(true);
+
+
   useEffect(()=>{
     fetch("https://restcountries.com/v3.1/all")
     .then((res)=>{
@@ -13,24 +16,34 @@ export const CountrtDetails = () => {
       }
       return res.json()
     })
-    .then(([data])=>{
+    .then((data)=>{
       console.log(data)
-      const country = data.find(c => c.name.common === countryName);      
+      const foundCountry=data.find((c)=>c.name.common === countryName);
+      if(!foundCountry){
+        throw new Error("Country not found")
+      }
       setCountries({
-        key:country.name.common,
-        NativeName:Object.values(country.name.nativeName[0].common),
-        population:country.population.toLocalString("en-IN"),
-        Region:country.subregion,
-        Capital:country.capital,
-        TimeZone:country.timezones,
-        Currencies:Object.values(country.currencies)[0].name,
-        Language:Object.values(country.languages),
-        image:country.flags.svg
+        key:foundCountry.name.common,
+        NativeName:Object.values(foundCountry.name.nativeName)[0].common,
+        population:foundCountry.population.toLocaleString("en-IN"),
+        Region:foundCountry.subregion,
+        Capital:foundCountry.capital,
+        TimeZone:foundCountry.timezones,
+        Currencies:Object.values(foundCountry.currencies)[0].name,
+        Language:Object.values(foundCountry.languages),
+        image:foundCountry.flags.svg
 
-      })
+      });
+      setLoading(false)
     })
-    .catch((error)=>setError(error.meassage))
-  },[])
+    .catch((error)=>{
+      setError(error.measage)
+      setLoading(false)
+    })
+  },[countryName])
+  if(loading){
+    return <p>Loading...</p>
+  }
   if(error){
     return <p>Error:{error}</p>
   }
@@ -40,9 +53,9 @@ export const CountrtDetails = () => {
         <i className="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
       </button>
       <div className="country-details">
-        <img src={countries.svg} alt={countries.key} className="country-details-img" />
+        <img src={countries.image} alt={countries.key} className="country-details-img" />
         <div className="detail-text-container">
-          <h1>Iceland</h1>
+          <h1>{countries.key}</h1>
           <div className="detail-text">
             <p><b>Native Name:</b> {countries.NativeName}</p>
             <p><b>Population:</b> {countries.population}</p>
