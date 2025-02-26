@@ -1,23 +1,11 @@
-import { useState } from "react";
-import CountryList from "../comonents/CountryList";
-import DropDown from "../comonents/DropDown";
 import Header from "../comonents/Header";
-import SearchBar from "../comonents/SearchBar";
+import { Outlet } from "react-router-dom";
 
 export default function App() {
-  const [query ,setQuery]=useState("")
-  return (
-    
+  return (   
     <>
       <Header/>
-      <main>
-      <div className="input-group-head">
-        <SearchBar setQuery={setQuery}/>
-        <DropDown/>
-      </div>
-      <CountryList query={query}/>
-      </main>
-      
+      <Outlet/>    
     </>
   )
 }
