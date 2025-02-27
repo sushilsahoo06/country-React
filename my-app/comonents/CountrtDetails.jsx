@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import "../style/style.css";
 
 export const CountrtDetails = () => {
   const countryName = new URLSearchParams(window.location.search).get('name');
@@ -28,9 +28,9 @@ export const CountrtDetails = () => {
         population:foundCountry.population.toLocaleString("en-IN"),
         Region:foundCountry.subregion,
         Capital:foundCountry.capital,
-        TimeZone:foundCountry.timezones,
-        Currencies:Object.values(foundCountry.currencies)[0].name,
-        Language:Object.values(foundCountry.languages),
+        TimeZone: foundCountry.timezones?.join(", ") || "N/A",
+        Currencies: Object.values(foundCountry.currencies || {})[0]?.name || "N/A",
+        Language: Object.values(foundCountry.languages || {}).join(", ") || "N/A",
         image:foundCountry.flags.svg
 
       });
