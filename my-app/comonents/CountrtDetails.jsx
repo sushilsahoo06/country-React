@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "../style/style.css";
+// import { useParams } from "react-router-dom";
 
 export const CountrtDetails = () => {
   const countryName = new URLSearchParams(window.location.search).get('name');
@@ -7,9 +8,11 @@ export const CountrtDetails = () => {
   const [error ,setError]=useState(null);
   const [loading, setLoading] = useState(true);
 
-
+  // const params=useParams()
+  // console.log(params)
+  // const CountryName=params.country
   useEffect(()=>{
-    fetch("https://restcountries.com/v3.1/all")
+    fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     .then((res)=>{
       if(!res.ok){
         console.log("failed to fetch !")
@@ -17,7 +20,7 @@ export const CountrtDetails = () => {
       return res.json()
     })
     .then((data)=>{
-      console.log(data)
+      
       const foundCountry=data.find((c)=>c.name.common === countryName);
       if(!foundCountry){
         throw new Error("Country not found")
@@ -37,7 +40,7 @@ export const CountrtDetails = () => {
       setLoading(false)
     })
     .catch((error)=>{
-      setError(error.measage)
+      setError(error.message)
       setLoading(false)
     })
   },[countryName])
