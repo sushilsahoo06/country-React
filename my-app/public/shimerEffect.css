@@ -1,0 +1,11 @@
+.country-card{
+  display: inline-block;
+  width: 200px;
+  height: 326px;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+  margin: 10px;
+}

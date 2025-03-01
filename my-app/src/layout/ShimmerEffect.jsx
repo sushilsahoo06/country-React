@@ -1,4 +1,4 @@
-
+import ".../public/ShimmerEffect.css"
 export const ShimmerEffect = () => {
   return (
     <div className="countries-container">
