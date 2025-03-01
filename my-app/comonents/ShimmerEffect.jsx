@@ -1,5 +1,5 @@
-// import "../style/ShimmerEffect.css"
-import "../style/style.css";
+// import "./style/ShimmerEffect.css"
+
 export const ShimmerEffect = () => {
   return (
     <div className="countries-container">
