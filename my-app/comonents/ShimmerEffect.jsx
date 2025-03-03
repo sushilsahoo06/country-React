@@ -1,47 +1,15 @@
 // import "./style/ShimmerEffect.css"
 
 export const ShimmerEffect = () => {
+  // new array(10).fill('')
+  
   return (
     <div className="countries-container">
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
-      <div className="country-card  shimmer-card"></div>
+      {
+        Array.from({length:40}).map((_,index)=>(
+          <div key={index} className="country-card shimmer-card"></div>
+        ))
+      }
     </div>
   )
 }
