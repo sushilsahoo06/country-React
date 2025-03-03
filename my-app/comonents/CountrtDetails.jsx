@@ -10,14 +10,16 @@ export const CountrtDetails = () => {
   const [loading, setLoading] = useState(true);
 
   const {state}=useLocation()
-  console.log(state)
   // const params=useParams()
   // console.log(params)
   // const CountryName=params.country
+  
  
   useEffect(()=>{
-    
-    // if(state)
+    if (state) {
+      updateCountryData(state);
+      return;
+    }
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     .then((res)=>{
       if(!res.ok){
@@ -26,30 +28,37 @@ export const CountrtDetails = () => {
       return res.json()
     })
     .then((data)=>{
+      updateCountryData()
       
       const foundCountry=data.find((c)=>c.name.common === countryName);
       if(!foundCountry){
         throw new Error("Country not found")
       }
-      setCountries({
-        key:foundCountry.name.common,
-        NativeName:Object.values(foundCountry.name.nativeName)[0].common,
-        population:foundCountry.population.toLocaleString("en-IN"),
-        Region:foundCountry.subregion,
-        Capital:foundCountry.capital,
-        TimeZone: foundCountry.timezones?.join(", ") || "N/A",
-        Currencies: Object.values(foundCountry.currencies || {})[0]?.name || "N/A",
-        Language: Object.values(foundCountry.languages || {}).join(", ") || "N/A",
-        image:foundCountry.flags.svg
-
-      });
-      setLoading(false)
+      
     })
     .catch((error)=>{
       setError(error.message)
       setLoading(false)
     })
-  },[countryName])
+
+  },[countryName,state])
+
+  function updateCountryData(foundCountry){
+
+    setCountries({
+      key:foundCountry.name.common,
+      NativeName:Object.values(foundCountry.name.nativeName)[0].common,
+      population:foundCountry.population.toLocaleString("en-IN"),
+      Region:foundCountry.subregion,
+      Capital:foundCountry.capital,
+      TimeZone: foundCountry.timezones?.join(", ") || "N/A",
+      Currencies: Object.values(foundCountry.currencies || {})[0]?.name || "N/A",
+      Language: Object.values(foundCountry.languages || {}).join(", ") || "N/A",
+      image:foundCountry.flags.svg
+
+    });
+    setLoading(false)
+  }
   if(loading){
     return <p>Loading...</p>
   }
