@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "../style/style.css";
+import { useLocation } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 
 export const CountrtDetails = () => {
@@ -8,10 +9,15 @@ export const CountrtDetails = () => {
   const [error ,setError]=useState(null);
   const [loading, setLoading] = useState(true);
 
+  const {state}=useLocation()
+  console.log(state)
   // const params=useParams()
   // console.log(params)
   // const CountryName=params.country
+ 
   useEffect(()=>{
+    
+    // if(state)
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     .then((res)=>{
       if(!res.ok){

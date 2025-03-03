@@ -4,11 +4,12 @@ import Card from "./Card";
 import { useEffect, useState } from "react";
 
 
+
 export default function CountryList({query}) {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
   const [loading ,setLoading]=useState(true)
-  
+ 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
       .then((res) => {
@@ -49,6 +50,7 @@ export default function CountryList({query}) {
             population={country.population.toLocaleString("en-IN")}
             region={country.region}
             capital={country.capital}
+            data={country}
         />
         ))
       ):(
