@@ -2,7 +2,7 @@ import { useState } from "react"
 import "../style/style.css"
 const Header=()=> {
   const [isDark ,setIsDark]=useState(JSON.parse(localStorage.getItem('isDark')))
-  // console.log(JSON.parse(localStorage.getItem('isDark')))
+  //console.log(JSON.parse(localStorage.getItem('isDark')))
   if(isDark){
     document.body.classList.add('dark')
   }else{
@@ -10,7 +10,7 @@ const Header=()=> {
   }
   return (
     <header className="header">
-    <div className="header-content">
+    <div className={"header-content"}>
       <h2 className="title">Where is the world?</h2>
 
       <p className="theme-change" onClick={()=>
