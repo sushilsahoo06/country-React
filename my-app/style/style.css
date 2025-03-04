@@ -135,4 +135,20 @@ a {
   margin-inline: 5px;
   font-size: 14px;
 }
-
+body{
+  --background-color: white;
+  --text-color:black;
+  --elements-color:white;
+  margin: 0;
+  font-family: Nunito ,sans-serif;
+  
+}
+body.dark{
+  --background-color:hsl(207,26%,17%);
+  --text-color:white;
+  --elements-color:hsl(209,23%,22%);
+}
+main{
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
