@@ -1,11 +1,14 @@
 import CountryList from "../comonents/CountryList";
 import DropDown from "../comonents/DropDown";
 import SearchBar from "../comonents/SearchBar";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Themecontext } from "../context/Themecontext";
 
 
 const Home = () => {
   const [query ,setQuery]=useState("")
+  const a=useContext(Themecontext)
+  console.log(a)
 
   return (
     <main>
