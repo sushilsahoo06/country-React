@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "../style/style.css";
 import { useLocation } from "react-router-dom";
+import { useWindowSize } from "../Utility";
 // import { useParams } from "react-router-dom";
 
 export const CountrtDetails = () => {
@@ -13,7 +14,8 @@ export const CountrtDetails = () => {
   // const params=useParams()
   // console.log(params)
   // const CountryName=params.country
-  
+    const windowSize=useWindowSize()
+
  
   useEffect(()=>{
     if (state) {
@@ -44,7 +46,6 @@ export const CountrtDetails = () => {
   },[countryName,state])
 
   function updateCountryData(foundCountry){
-
     setCountries({
       key:foundCountry.name.common,
       NativeName:Object.values(foundCountry.name.nativeName)[0].common,
@@ -71,6 +72,8 @@ export const CountrtDetails = () => {
         <i className="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
       </button>
       <div className="country-details">
+      <h1 style={{textAlign:'center'}}>{windowSize.width}x {windowSize.height}</h1>
+
         <img src={countries.image} alt={countries.key} className="country-details-img" />
         <div className="detail-text-container">
           <h1>{countries.key}</h1>
