@@ -17,7 +17,7 @@ const Home = () => {
     <main>
       <div className="input-group-head">
         <SearchBar setQuery={setQuery}/>
-        <DropDown/>
+        <DropDown setQuery={setQuery}/>
       </div>
       <h1 style={{textAlign:'center'}}>{windowSize.width}x {windowSize.height}</h1>
       <CountryList query={query}/>

@@ -33,7 +33,7 @@ export default function CountryList({query}) {
   }
 
   const filterCountries=countries.filter((country)=>
-    country.name.common.toLowerCase().includes(query)
+    country.name.common.toLowerCase().includes(query) || country.region.toLowerCase().includes(query)
   );
   return (
     <>
