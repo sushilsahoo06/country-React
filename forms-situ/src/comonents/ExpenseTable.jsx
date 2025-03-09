@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const ExpenseTable = () => {
+export const ExpenseTable = ({expenses}) => {
   return (
     <>
-      <table class="expense-table">
+      <table className="expense-table">
           <thead>
             <tr>
               <th>Title</th>
@@ -17,14 +17,14 @@ export const ExpenseTable = () => {
                   <option value="medicine">Medicine</option>
                 </select>
               </th>
-              <th class="amount-column">
+              <th className="amount-column">
                 <div>
                   <span>Amount</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="10"
                     viewBox="0 0 384 512"
-                    class="arrow up-arrow"
+                    className="arrow up-arrow"
                   >
                     <title>Ascending</title>
                     <path
@@ -35,7 +35,7 @@ export const ExpenseTable = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     width="10"
                     viewBox="0 0 384 512"
-                    class="arrow down-arrow"
+                    className="arrow down-arrow"
                   >
                     <title>Descending</title>
                     <path
@@ -47,26 +47,16 @@ export const ExpenseTable = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Milk</td>
-              <td>Grocery</td>
-              <td>₹40</td>
-            </tr>
-            <tr>
-              <td>Shirt</td>
-              <td>Clothes</td>
-              <td>₹600</td>
-            </tr>
-            <tr>
-              <td>Vegetables</td>
-              <td>Grocery</td>
-              <td>₹100</td>
-            </tr>
-            <tr>
-              <td>Electricity Bill</td>
-              <td>Bills</td>
-              <td>₹1100</td>
-            </tr>
+          
+            
+            {expenses.map(({id,title,category,amount})=>(
+              <tr key={id}>
+                <th>{title}</th>
+                <th>{category}</th>
+                <th>₹{amount}</th>
+              </tr>
+            ))}
+            
             <tr>
               <th>Total</th>
               <th></th>
@@ -74,7 +64,7 @@ export const ExpenseTable = () => {
             </tr>
           </tbody>
         </table>
-        <div class="context-menu">
+        <div className="context-menu">
             <div>Edit</div>
             <div>Delete</div>
         </div>

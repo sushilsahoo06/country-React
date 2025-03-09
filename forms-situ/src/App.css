@@ -123,3 +123,7 @@ main {
         flex-direction: column;
     }
 }
+#category{
+    height: 28px;
+    font: inherit;
+}
