@@ -3,8 +3,17 @@ import React from "react";
 export const ExpenseForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    
+    console.log(getFormData(e.target))
   };
+  const getFormData=(form)=>{
+    const Form=new FormData(form);
+    const data={};
+    for(const [key,value] of Form.entries()){
+      data[key]=value;
+    }
+    return data;
+  }
 
   return (
     <>
