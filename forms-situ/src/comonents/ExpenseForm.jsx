@@ -10,21 +10,14 @@ export const ExpenseForm = ({setExpenses}) => {
   console.log(amount)
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData=getFormData(e.target)
-    setExpenses((prevState)=>[...prevState,
-      {...formData,id:crypto.randomUUID()}
-    ]);
- 
-    e.target.reset()
+    const formData={title,category,amount,id:crypto.randomUUID()}
+    setExpenses((prevState)=>[...prevState,formData])
+    // e.target.reset()
+    setTitle('')
+    setCategory('')
+    setAmount('')
   };
-  const getFormData=(form)=>{
-    const formData=new FormData(form);
-    const data={};
-    for(const [key,value] of formData.entries()){
-      data[key]=value;
-    }
-    return data;
-  }
+
 
   return (
     <>
