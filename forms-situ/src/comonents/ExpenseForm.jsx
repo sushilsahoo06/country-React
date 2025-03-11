@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const ExpenseForm = ({setExpenses}) => {
+  const[title,setTitle]=useState('')
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData=getFormData(e.target)
@@ -23,7 +24,13 @@ export const ExpenseForm = ({setExpenses}) => {
       <form className="expense-form" onSubmit={handleSubmit}>
         <div className="input-container">
           <label htmlFor="title">Title</label>
-          <input id="title" name="title" required/>
+          <input 
+           id="title" 
+           name="title" 
+           value={{title}}
+           required
+           onChange={(e)=>setTitle(e.target.value)}
+          />
         </div>
         <div className="input-container">
           <label htmlFor="category">Category</label>
