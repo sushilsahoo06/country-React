@@ -5,9 +5,10 @@ export const ExpenseForm = ({setExpenses}) => {
   const[category,setCategory]=useState('');
   const[amount,setAmount]=useState('');
 
-  const myRef=useRef(0)
+  const titleRef=useRef(null)//useRef is a ulternate method
+
   useEffect(()=>{
-    // console.log(myRef.current)
+    console.log(titleRef)
   })
 
   console.log(title)
@@ -25,12 +26,6 @@ export const ExpenseForm = ({setExpenses}) => {
 
   return (
     <>
-      <button
-        onClick={()=>{
-          myRef.current=myRef.current+1;
-        }}
-        ref={myRef}
-      >Click</button>
       <form className="expense-form" onSubmit={handleSubmit}>
         <div className="input-container">
           <label htmlFor="title">Title</label>
@@ -39,6 +34,7 @@ export const ExpenseForm = ({setExpenses}) => {
            name="title" 
            value={title}
            required
+           //ref={titleRef}
            onChange={(e)=>setTitle(e.target.value)}
           />
         </div>
