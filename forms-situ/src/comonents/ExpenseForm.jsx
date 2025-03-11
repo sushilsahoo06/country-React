@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 
 export const ExpenseForm = ({setExpenses}) => {
-  const[title,setTitle]=useState('')
+  const[title,setTitle]=useState('');
+  const[category,setCategory]=useState('');
+  const[amount,setAmount]=useState('');
+
+  console.log(title)
+  console.log(category)
+  console.log(amount)
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData=getFormData(e.target)
     setExpenses((prevState)=>[...prevState,
       {...formData,id:crypto.randomUUID()}
-    ])
+    ]);
+ 
     e.target.reset()
   };
   const getFormData=(form)=>{
@@ -27,14 +34,20 @@ export const ExpenseForm = ({setExpenses}) => {
           <input 
            id="title" 
            name="title" 
-           value={{title}}
+           value={title}
            required
            onChange={(e)=>setTitle(e.target.value)}
           />
         </div>
         <div className="input-container">
           <label htmlFor="category">Category</label>
-          <select id="category" name="category" required>
+          <select 
+            id="category" 
+            name="category" 
+            value={category}
+            onChange={(e)=>setCategory(e.target.value)}
+            required
+          >
             <option value="" hidden>
               Select Category
             </option>
@@ -47,7 +60,14 @@ export const ExpenseForm = ({setExpenses}) => {
         </div>
         <div className="input-container">
           <label htmlFor="amount">Amount</label>
-          <input id="amount" name="amount" type="number" required/>
+          <input 
+            id="amount" 
+            name="amount" 
+            type="number"
+            value={amount}
+            onChange={(e)=>setAmount(e.target.value)}
+            required
+          />
         </div>
         <button type="submit" className="add-btn">
           Add
