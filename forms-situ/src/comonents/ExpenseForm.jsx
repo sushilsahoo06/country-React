@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const ExpenseForm = ({setExpenses}) => {
   const[title,setTitle]=useState('');
   const[category,setCategory]=useState('');
   const[amount,setAmount]=useState('');
+
+  const myRef=useRef(0)
+  useEffect(()=>{
+    // console.log(myRef.current)
+  })
 
   console.log(title)
   console.log(category)
@@ -18,9 +23,14 @@ export const ExpenseForm = ({setExpenses}) => {
     setAmount('')
   };
 
-
   return (
     <>
+      <button
+        onClick={()=>{
+          myRef.current=myRef.current+1;
+        }}
+        ref={myRef}
+      >Click</button>
       <form className="expense-form" onSubmit={handleSubmit}>
         <div className="input-container">
           <label htmlFor="title">Title</label>
