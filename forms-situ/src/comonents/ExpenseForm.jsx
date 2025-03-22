@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Input from "./input";
 
 export const ExpenseForm = ({setExpenses}) => {
   const[title,setTitle]=useState('');
@@ -49,26 +50,22 @@ export const ExpenseForm = ({setExpenses}) => {
   return (
     <>
       <form className="expense-form" onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label htmlFor="title">Title</label>
-          <input 
-           id="title" 
-           name="title" 
-           value={title}
-          
-           //ref={titleRef}
-           onChange={handleChange}
-          />
-          <p className="error">{error.title}</p>
-        </div>
+        <Input 
+          label='Title' 
+          id="title" 
+          name="title" 
+          value={title} 
+          onChange={handleChange}
+          error={error.title}
+        />
+
         <div className="input-container">
           <label htmlFor="category">Category</label>
           <select 
             id="category" 
             name="category" 
             value={category}
-            onChange={handleChange}
-            
+            onChange={handleChange}  
           >
             <option value="" hidden>
               Select Category
@@ -81,18 +78,15 @@ export const ExpenseForm = ({setExpenses}) => {
           </select>
           <p className="error">{error.category}</p>
         </div>
-        <div className="input-container">
-          <label htmlFor="amount">Amount</label>
-          <input 
-            id="amount" 
-            name="amount" 
-            type="number"
-            value={amount}
-            onChange={handleChange}
-           
-          />
-          <p className="error">{error.amount}</p>
-        </div>
+         <Input 
+           label='Amount' 
+           id="amount" 
+           name="amount" 
+           value={amount} 
+           onChange={handleChange}
+           error={error.amount}
+         />
+
         <button type="submit" className="add-btn">
           Add
         </button>
