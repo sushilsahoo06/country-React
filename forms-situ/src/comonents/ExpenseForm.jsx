@@ -12,13 +12,25 @@ export const ExpenseForm = ({setExpenses}) => {
   })
   //validate functions
   // const validation
-  console.log(title)
-  console.log(category)
-  console.log(amount)
-
+  const[error,setError]=useState({})
+  const validate=(formData)=>{
+    const errorData={}
+    if(!formData.title){
+      errorData.title='Title is required'
+    }
+    if(!formData.category){
+      errorData.category='Category is required'
+    }
+    if(!formData.amount){
+      errorData.amount='Amount is required'
+    }
+    setError(errorData)
+    return errorData;
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const validateResult=validate(title,category,amount);
+    console.log(validateResult)
     const formData={title,category,amount,id:crypto.randomUUID()}
     setExpenses((prevState)=>[...prevState,formData])
     // e.target.reset()
@@ -42,7 +54,7 @@ export const ExpenseForm = ({setExpenses}) => {
            id="title" 
            name="title" 
            value={title}
-           required
+          
            //ref={titleRef}
            onChange={handleChange}
           />
@@ -54,7 +66,7 @@ export const ExpenseForm = ({setExpenses}) => {
             name="category" 
             value={category}
             onChange={handleChange}
-            required
+            
           >
             <option value="" hidden>
               Select Category
@@ -74,7 +86,7 @@ export const ExpenseForm = ({setExpenses}) => {
             type="number"
             value={amount}
             onChange={handleChange}
-            required
+           
           />
         </div>
         <button type="submit" className="add-btn">
