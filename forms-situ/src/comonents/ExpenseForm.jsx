@@ -19,7 +19,7 @@ export const ExpenseForm = ({setExpenses}) => {
       errorData.title='Title is required'
     }
     if(!formData.category){
-      errorData.category='Category is required'
+      errorData.category='Please select Category'
     }
     if(!formData.amount){
       errorData.amount='Amount is required'
@@ -29,11 +29,10 @@ export const ExpenseForm = ({setExpenses}) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validateResult=validate(title,category,amount);
-    if(Object.keys(validateResult).length)return
+    const formData=validate(title,category,amount);
+    if(Object.keys(formData).length)return
 
-    const formData={title,category,amount,id:crypto.randomUUID()}
-    setExpenses((prevState)=>[...prevState,formData])
+    setExpenses((prevState)=>[...prevState,{...formData,id:crypto.randomUUID()}])
     // e.target.reset()
     setTitle('')
     setCategory('')
@@ -44,7 +43,7 @@ export const ExpenseForm = ({setExpenses}) => {
     if(name==="title") setTitle(value)
     if(name==="category") setCategory(value)
     if(name==="amount") setAmount(value)
-    setError({})
+    setError((prevError)=>({...prevError,[name]:""}));
   }
 
   return (
