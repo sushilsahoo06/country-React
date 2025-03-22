@@ -10,12 +10,15 @@ export const ExpenseForm = ({setExpenses}) => {
   useEffect(()=>{
     console.log(titleRef)
   })
-
+  //validate functions
+  // const validation
   console.log(title)
   console.log(category)
   console.log(amount)
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const formData={title,category,amount,id:crypto.randomUUID()}
     setExpenses((prevState)=>[...prevState,formData])
     // e.target.reset()
@@ -23,6 +26,12 @@ export const ExpenseForm = ({setExpenses}) => {
     setCategory('')
     setAmount('')
   };
+  const handleChange=(e)=>{
+    const {name,value}=e.target;
+    if(name==="title") setTitle(value)
+    if(name==="category") setCategory(value)
+    if(name==="amount") setAmount(value)
+  }
 
   return (
     <>
@@ -35,7 +44,7 @@ export const ExpenseForm = ({setExpenses}) => {
            value={title}
            required
            //ref={titleRef}
-           onChange={(e)=>setTitle(e.target.value)}
+           onChange={handleChange}
           />
         </div>
         <div className="input-container">
@@ -44,7 +53,7 @@ export const ExpenseForm = ({setExpenses}) => {
             id="category" 
             name="category" 
             value={category}
-            onChange={(e)=>setCategory(e.target.value)}
+            onChange={handleChange}
             required
           >
             <option value="" hidden>
@@ -64,7 +73,7 @@ export const ExpenseForm = ({setExpenses}) => {
             name="amount" 
             type="number"
             value={amount}
-            onChange={(e)=>setAmount(e.target.value)}
+            onChange={handleChange}
             required
           />
         </div>
