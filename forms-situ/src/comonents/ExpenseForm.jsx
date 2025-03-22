@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Input from "./input";
+import Select from "./Select";
 
 export const ExpenseForm = ({setExpenses}) => {
   const[title,setTitle]=useState('');
@@ -30,8 +31,9 @@ export const ExpenseForm = ({setExpenses}) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData=validate(title,category,amount);
-    if(Object.keys(formData).length)return
+    const formData={title,category,amount};
+    const errors=validate(formData)
+    if(Object.keys(errors).length)return
 
     setExpenses((prevState)=>[...prevState,{...formData,id:crypto.randomUUID()}])
     // e.target.reset()
@@ -44,6 +46,7 @@ export const ExpenseForm = ({setExpenses}) => {
     if(name==="title") setTitle(value)
     if(name==="category") setCategory(value)
     if(name==="amount") setAmount(value)
+
     setError((prevError)=>({...prevError,[name]:""}));
   }
 
@@ -59,25 +62,17 @@ export const ExpenseForm = ({setExpenses}) => {
           error={error.title}
         />
 
-        <div className="input-container">
-          <label htmlFor="category">Category</label>
-          <select 
-            id="category" 
-            name="category" 
-            value={category}
-            onChange={handleChange}  
-          >
-            <option value="" hidden>
-              Select Category
-            </option>
-            <option value="grocery">Grocery</option>
-            <option value="clothes">Clothes</option>
-            <option value="bills">Bills</option>
-            <option value="education">Education</option>
-            <option value="medicine">Medicine</option>
-          </select>
-          <p className="error">{error.category}</p>
-        </div>
+        <Select
+          label='Category'
+          id='category'
+          name='category'
+          value={category}
+          options={["grocery","clothes","bills","education","Medicine"]}
+          onChange={handleChange}
+          error={error.category}
+          
+        />
+
          <Input 
            label='Amount' 
            id="amount" 
