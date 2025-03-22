@@ -4,7 +4,7 @@ export const ExpenseForm = ({setExpenses}) => {
   const[title,setTitle]=useState('');
   const[category,setCategory]=useState('');
   const[amount,setAmount]=useState('');
-
+  const[error,setError]=useState({})
   const titleRef=useRef(null)//useRef is a ulternate method
 
   useEffect(()=>{
@@ -12,7 +12,7 @@ export const ExpenseForm = ({setExpenses}) => {
   })
   //validate functions
   // const validation
-  const[error,setError]=useState({})
+
   const validate=(formData)=>{
     const errorData={}
     if(!formData.title){
@@ -30,7 +30,8 @@ export const ExpenseForm = ({setExpenses}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validateResult=validate(title,category,amount);
-    console.log(validateResult)
+    if(Object.keys(validateResult).length)return
+
     const formData={title,category,amount,id:crypto.randomUUID()}
     setExpenses((prevState)=>[...prevState,formData])
     // e.target.reset()
@@ -43,6 +44,7 @@ export const ExpenseForm = ({setExpenses}) => {
     if(name==="title") setTitle(value)
     if(name==="category") setCategory(value)
     if(name==="amount") setAmount(value)
+    setError({})
   }
 
   return (
@@ -58,6 +60,7 @@ export const ExpenseForm = ({setExpenses}) => {
            //ref={titleRef}
            onChange={handleChange}
           />
+          <p className="error">{error.title}</p>
         </div>
         <div className="input-container">
           <label htmlFor="category">Category</label>
@@ -77,6 +80,7 @@ export const ExpenseForm = ({setExpenses}) => {
             <option value="education">Education</option>
             <option value="medicine">Medicine</option>
           </select>
+          <p className="error">{error.category}</p>
         </div>
         <div className="input-container">
           <label htmlFor="amount">Amount</label>
@@ -88,6 +92,7 @@ export const ExpenseForm = ({setExpenses}) => {
             onChange={handleChange}
            
           />
+          <p className="error">{error.amount}</p>
         </div>
         <button type="submit" className="add-btn">
           Add
