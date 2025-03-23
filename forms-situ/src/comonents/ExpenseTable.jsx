@@ -5,17 +5,16 @@ import ContextMenu from './ContextMenu';
 export const ExpenseTable = ({expenses}) => {
   // const[category,setCategory]=useState('');
   const [filterData,setCategory]=useFilter(expenses,(data)=>data.category)
-  console.log(filterData)
+  // console.log(filterData)
   // const filterData=expenses.filter((expense)=>{
   //   return expense.category.toLowerCase().includes(category)
   // });
-  const[position,setPosition]=useState({})
   const total=filterData.reduce((accumulator,current)=>accumulator+current.amount,0)
-  
+  const[menuposition,setmenuPosition]=useState({})
   return (
     <>
-      <ContextMenu position={position}/>
-      <table className="expense-table" onClick={()=>setPosition({})}>
+      <ContextMenu menuposition={menuposition} />
+      <table className="expense-table" onClick={()=>setmenuPosition({})}>
           <thead>
             <tr>
               <th>Title</th>
@@ -66,7 +65,7 @@ export const ExpenseTable = ({expenses}) => {
                 key={id} 
                 onContextMenu={(e)=>{
                   e.preventDefault()
-                  setPosition({left:e.clientX,top:e.clientY})
+                  setmenuPosition({left:e.clientX+4,top:e.clientY+4})
                 }} 
               >
                 <th>{title}</th>
@@ -82,7 +81,6 @@ export const ExpenseTable = ({expenses}) => {
             </tr>
           </tbody>
         </table>
-        
     </>
   )
 }
