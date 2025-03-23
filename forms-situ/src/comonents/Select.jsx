@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Select({label,id,name,value,onChange,options=[],error}) {
+export default function Select({label,id,name,value,onChange,options=[],defaultCategory,error}) {
   return (
     <div className="input-container">
           <label htmlFor={id}>{label}</label>
@@ -12,7 +12,7 @@ export default function Select({label,id,name,value,onChange,options=[],error}) 
           >
 
             <option value="" hidden>
-              Select Category
+              {defaultCategory}
             </option>
             {
               options.map((option,index)=>(<option key={index} value={option}>{option}</option>))

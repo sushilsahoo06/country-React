@@ -14,9 +14,24 @@ export const ExpenseForm = ({setExpenses}) => {
   })
   //validate functions
   // const validation
+  const validatationConfig={
+    title:[
+      {required:true,meassage:'Please enter Title'},
+      {minLength:5,meassage:'Title should be at least 5 characters long'}
+    ],
+    category:[
+      {required:true,meassage:'Please enter Category'}
+    ],
+    amount:[{required:true,meassage:'Please enter amount'}]
+  }
 
   const validate=(formData)=>{
     const errorData={}
+
+    Object.entries(formData).forEach(([key,values])=>{
+      console.log(validatationConfig[key])
+    })
+
     if(!formData.title){
       errorData.title='Title is required'
     }
@@ -68,6 +83,7 @@ export const ExpenseForm = ({setExpenses}) => {
           name='category'
           value={category}
           options={["grocery","clothes","bills","education","Medicine"]}
+          defaultCategory='Select Category'
           onChange={handleChange}
           error={error.category}
           
