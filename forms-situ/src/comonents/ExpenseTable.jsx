@@ -1,5 +1,6 @@
-// import React, { useState } from 'react'
+import { useState } from 'react';
 import { useFilter } from '../hooks/useFilter';
+import ContextMenu from './ContextMenu';
 
 export const ExpenseTable = ({expenses}) => {
   // const[category,setCategory]=useState('');
@@ -8,12 +9,13 @@ export const ExpenseTable = ({expenses}) => {
   // const filterData=expenses.filter((expense)=>{
   //   return expense.category.toLowerCase().includes(category)
   // });
- 
+  const[position,setPosition]=useState({})
   const total=filterData.reduce((accumulator,current)=>accumulator+current.amount,0)
   
   return (
     <>
-      <table className="expense-table">
+      <ContextMenu position={position}/>
+      <table className="expense-table" onClick={()=>setPosition({})}>
           <thead>
             <tr>
               <th>Title</th>
@@ -60,7 +62,13 @@ export const ExpenseTable = ({expenses}) => {
           
             
             {filterData.map(({id,title,category,amount})=>(
-              <tr key={id}>
+              <tr 
+                key={id} 
+                onContextMenu={(e)=>{
+                  e.preventDefault()
+                  setPosition({left:e.clientX,top:e.clientY})
+                }} 
+              >
                 <th>{title}</th>
                 <th>{category}</th>
                 <th>₹{amount}</th>
@@ -74,10 +82,7 @@ export const ExpenseTable = ({expenses}) => {
             </tr>
           </tbody>
         </table>
-        <div className="context-menu">
-            <div>Edit</div>
-            <div>Delete</div>
-        </div>
+        
     </>
   )
 }
