@@ -1,6 +1,9 @@
 import React from 'react'
 
 export const ExpenseTable = ({expenses}) => {
+  const filterData=expenses.filter((expense)=>{
+    console.log(expense.category)
+  })
   return (
     <>
       <table className="expense-table">

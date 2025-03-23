@@ -16,31 +16,43 @@ export const ExpenseForm = ({setExpenses}) => {
   // const validation
   const validatationConfig={
     title:[
-      {required:true,meassage:'Please enter Title'},
-      {minLength:5,meassage:'Title should be at least 5 characters long'}
+      {required:true,message:'Please enter Title'},
+      {minLength:5,message:'Title should be at least 5 characters long'}
     ],
     category:[
-      {required:true,meassage:'Please enter Category'}
+      {required:true,message:'Please enter Category'}
     ],
-    amount:[{required:true,meassage:'Please enter amount'}]
+    amount:[{required:true,message:'Please enter amount'}]
   }
 
   const validate=(formData)=>{
     const errorData={}
 
-    Object.entries(formData).forEach(([key,values])=>{
-      console.log(validatationConfig[key])
-    })
+ 
+    Object.entries(formData).forEach(([key, value]) => {
+      validatationConfig[key]?.forEach((rule) => {
+        if (rule.required && !value) {
+          // If the field is empty, show only the required message
+          errorData[key] = rule.message;
+        } else if (rule.minLength && typeof value === "string" && value.length < rule.minLength) {
+          // Only check minLength if the required check passed
+          if (!errorData[key]) {
+            errorData[key] = rule.message;
+          }
+        }
+      });
+    });
+  
 
-    if(!formData.title){
-      errorData.title='Title is required'
-    }
-    if(!formData.category){
-      errorData.category='Please select Category'
-    }
-    if(!formData.amount){
-      errorData.amount='Amount is required'
-    }
+    // if(!formData.title){
+    //   errorData.title='Title is required'
+    // }
+    // if(!formData.category){
+    //   errorData.category='Please select Category'
+    // }
+    // if(!formData.amount){
+    //   errorData.amount='Amount is required'
+    // }
     setError(errorData)
     return errorData;
   }
