@@ -1,23 +1,35 @@
 import { useEffect, useState } from "react";
 
-export function useLocalStorage(key,initialData){
-  const[data,setData]=useState(initialData)
+export function useLocalStorage(key, initialData) {
+  const [data, setData] = useState(() => {
+    try {
+      const storedData = localStorage.getItem(key);
+      return storedData ? JSON.parse(storedData) : initialData;
+    } catch (error) {
+      console.error("Error parsing localStorage data:", error);
+      return initialData; // Fallback if parsing fails
+    }
+  });
 
-  useEffect(()=>{
-    const existingData=JSON.parse(localStorage.getItem(key))
-    if(existingData){
-      setData(existingData)
-    }else{
-      localStorage.setItem(key,JSON.stringify(initialData))
+  useEffect(() => {
+    try {
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch (error) {
+      console.error("Error setting localStorage data:", error);
     }
-  },[]);
-  const updateLocalStorage=(newData)=>{
-    if(typeof newData ==='function'){
-      localStorage.setItem(key,JSON.stringify(newData(data)))
-    }else{
-      localStorage.setItem(key,JSON.stringify(newData))
-    }
-    setData(newData)
-  }
-  return [data,updateLocalStorage]
+  }, [key, data]); // Update localStorage when `data` changes
+
+  const updateLocalStorage = (newData) => {
+    setData((prevData) => {
+      const updatedData = typeof newData === "function" ? newData(prevData) : newData;
+      try {
+        localStorage.setItem(key, JSON.stringify(updatedData));
+      } catch (error) {
+        console.error("Error updating localStorage data:", error);
+      }
+      return updatedData;
+    });
+  };
+
+  return [data, updateLocalStorage];
 }

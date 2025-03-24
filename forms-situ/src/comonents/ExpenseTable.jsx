@@ -79,7 +79,7 @@ export const ExpenseTable = ({expenses}) => {
             
             <tr>
               <th>Total</th>
-              <th className='clear-sort'>Clear sort</th>
+              <th className='clear-sort' onClick={()=>setsortData(()=>()=>{})}>Clear sort</th>
               <th>₹{total}</th>
             </tr>
           </tbody>
