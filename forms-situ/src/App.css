@@ -144,3 +144,6 @@ main {
 .expense-table {
     overflow: auto; /* changed from visible !important */
 }
+.clear-sort{
+  cursor: pointer;
+}

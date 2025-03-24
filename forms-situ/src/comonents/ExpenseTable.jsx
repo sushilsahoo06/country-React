@@ -1,15 +1,22 @@
-
+import { useState } from 'react';
 import { useFilter } from '../hooks/useFilter';
-import ContextMenu from './ContextMenu';
 
 export const ExpenseTable = ({expenses}) => {
   // const[category,setCategory]=useState('');
-  const [filterData,setCategory]=useFilter(expenses,(data)=>data.category)
+  const [filterData,setCategory]=useFilter(expenses,(data)=>data.category);
+  const[sortData, setsortData]=useState([...filterData]);
   // console.log(filterData)
   // const filterData=expenses.filter((expense)=>{
   //   return expense.category.toLowerCase().includes(category)
   // });
-  const total=filterData.reduce((accumulator,current)=>accumulator+current.amount,0)
+  const total=filterData.reduce((accumulator,current)=>accumulator+current.amount,0);
+  const handleSort=(order)=>{
+    const sorted=[...filterData].sort((a,b)=>
+      order==='asc'? a.amount-b.amount : b.amount-a.amount
+    );
+    setsortData(sorted)
+  }
+
   return (
     <>
       <table className="expense-table">
@@ -34,6 +41,9 @@ export const ExpenseTable = ({expenses}) => {
                     width="10"
                     viewBox="0 0 384 512"
                     className="arrow up-arrow"
+                    onClick={()=>{
+                      handleSort('asc')
+                    }}
                   >
                     <title>Ascending</title>
                     <path
@@ -45,6 +55,7 @@ export const ExpenseTable = ({expenses}) => {
                     width="10"
                     viewBox="0 0 384 512"
                     className="arrow down-arrow"
+                    onClick={()=>handleSort('dec')}
                   >
                     <title>Descending</title>
                     <path
@@ -58,7 +69,7 @@ export const ExpenseTable = ({expenses}) => {
           <tbody>
           
             
-            {filterData.map(({id,title,category,amount})=>(
+            {sortData.map(({id,title,category,amount})=>(
               <tr key={id} >
                 <th>{title}</th>
                 <th>{category}</th>
@@ -68,7 +79,7 @@ export const ExpenseTable = ({expenses}) => {
             
             <tr>
               <th>Total</th>
-              <th></th>
+              <th className='clear-sort'>Clear sort</th>
               <th>₹{total}</th>
             </tr>
           </tbody>
