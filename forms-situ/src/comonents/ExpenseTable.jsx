@@ -1,15 +1,14 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { useFilter } from '../hooks/useFilter';
 
 export const ExpenseTable = ({expenses}) => {
   // const[category,setCategory]=useState('');
   const [filterData,setCategory]=useFilter(expenses,(data)=>data.category);
   const[sortData, setsortData]=useState([...filterData]);
-  // console.log(filterData)
   // const filterData=expenses.filter((expense)=>{
   //   return expense.category.toLowerCase().includes(category)
   // });
-  const total=filterData.reduce((accumulator,current)=>accumulator+current.amount,0);
+  const total=sortData.reduce((accumulator,current)=>accumulator+Number(current.amount),0);
   const handleSort=(order)=>{
     const sorted=[...filterData].sort((a,b)=>
       order==='asc'? a.amount-b.amount : b.amount-a.amount
@@ -79,7 +78,7 @@ export const ExpenseTable = ({expenses}) => {
             
             <tr>
               <th>Total</th>
-              <th className='clear-sort' onClick={()=>setsortData(()=>()=>{})}>Clear sort</th>
+              <th className='clear-sort' onClick={()=>setsortData([...filterData])}>Clear sort</th>
               <th>₹{total}</th>
             </tr>
           </tbody>

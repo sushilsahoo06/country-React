@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function useLocalStorage(key, initialData) {
   const [data, setData] = useState(() => {
@@ -10,14 +10,6 @@ export function useLocalStorage(key, initialData) {
       return initialData; // Fallback if parsing fails
     }
   });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(key, JSON.stringify(data));
-    } catch (error) {
-      console.error("Error setting localStorage data:", error);
-    }
-  }, [key, data]); // Update localStorage when `data` changes
 
   const updateLocalStorage = (newData) => {
     setData((prevData) => {
