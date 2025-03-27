@@ -1,4 +1,4 @@
-
+import{createStore} from 'redux'
 // let prevState=state;
 // function increament(){
 //   //mutating state
@@ -31,6 +31,7 @@ function reducer(state=reduxstate,action) {
   }
   return state
 }
+
 console.log(reduxstate);
 reduxstate = reducer(reduxstate,{type:'post/increment'});
 console.log(reduxstate);
