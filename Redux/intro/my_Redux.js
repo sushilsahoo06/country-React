@@ -1,5 +1,6 @@
-export function My_store(){
+export function My_store(reducer){
   let state
+  const listener=[]
   const store={
     getState(){
       return state
@@ -7,9 +8,13 @@ export function My_store(){
     getPatch(action){
       state=reducer(state,action)
     },
-    subscribe(){
-
-    }
+    subscribe(listener){
+      listener.push(listener)
+      listener.forEach(listener => {
+        listener()
+      });
+    } 
   }
-  return store;
+  store.dispatch({type:'@@INIT'})
+  return store
 }

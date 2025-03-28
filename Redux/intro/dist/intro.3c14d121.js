@@ -727,29 +727,34 @@ function reducer(state = reduxstate, action) {
 // console.log(reduxstate);
 // reduxstate = reducer(reduxstate,{type:'sushil'});
 // console.log(reduxstate);
-const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.());
+const My_store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.());
 const mystore = (0, _myRedux.My_store)(reducer);
 console.log(mystore);
-console.log(store);
-store.subscribe(()=>{
-    console.log(store.getState());
+console.log((0, _myRedux.My_store));
+(0, _myRedux.My_store).subscribe(()=>{
+    console.log((0, _myRedux.My_store).getState());
 });
-store.dispatch({
+(0, _myRedux.My_store).dispatch({
     type: 'post/increment'
 });
-store.dispatch({
+console.log((0, _myRedux.My_store).getState());
+(0, _myRedux.My_store).dispatch({
     type: 'post/increment'
 });
-store.dispatch({
+console.log((0, _myRedux.My_store).getState());
+(0, _myRedux.My_store).dispatch({
     type: 'post/increment'
 });
-store.dispatch({
+console.log((0, _myRedux.My_store).getState());
+(0, _myRedux.My_store).dispatch({
     type: 'post/decrement'
 });
-store.dispatch({
+console.log((0, _myRedux.My_store).getState());
+(0, _myRedux.My_store).dispatch({
     type: 'post/incrementBy',
     payLoad: 10
 });
+console.log((0, _myRedux.My_store).getState());
 
 },{"redux":"7RvxM","./my_Redux":"ifGoA"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
@@ -1093,8 +1098,9 @@ exports.export = function(dest, destName, get) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "My_store", ()=>My_store);
-function My_store() {
+function My_store(reducer) {
     let state;
+    const listener = [];
     const store = {
         getState () {
             return state;
@@ -1102,8 +1108,16 @@ function My_store() {
         getPatch (action) {
             state = reducer(state, action);
         },
-        subscribe () {}
+        subscribe (listener) {
+            listener.push(listener);
+            listener.forEach((listener)=>{
+                listener();
+            });
+        }
     };
+    store.dispatch({
+        type: '@@INIT'
+    });
     return store;
 }
 

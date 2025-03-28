@@ -15,7 +15,7 @@ import { My_store } from './my_Redux';
 // console.log(state)
 // increament()
 // console.log(state)
-
+const postCount=document.querySelector('.redux')
 let reduxstate = {
   post: 0,
   name: "sushil",
@@ -57,15 +57,22 @@ function reducer(state=reduxstate,action) {
 // reduxstate = reducer(reduxstate,{type:'sushil'});
 // console.log(reduxstate);
 
-const store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.())
+const My_store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.())
 const mystore=My_store(reducer)
 console.log(mystore)
-console.log(store)
-store.subscribe(()=>{
-  console.log(store.getState())
+console.log(My_store)
+const unsuscribe=My_store.subscribe(()=>{
+  console.log(My_store.getState())
+  postCount.innetText=My_store.getState().post;
 })
-store.dispatch({type:'post/increment'})
-store.dispatch({type:'post/increment'})
-store.dispatch({type:'post/increment'})
-store.dispatch({type:'post/decrement'})
-store.dispatch({type:'post/incrementBy',payLoad:10})
+
+My_store.dispatch({type:'post/increment'})
+console.log(My_store.getState())
+My_store.dispatch({type:'post/increment'})
+console.log(My_store.getState())
+My_store.dispatch({type:'post/increment'})
+console.log(My_store.getState())
+My_store.dispatch({type:'post/decrement'})
+console.log(My_store.getState())
+My_store.dispatch({type:'post/incrementBy',payLoad:10})
+console.log(My_store.getState())
