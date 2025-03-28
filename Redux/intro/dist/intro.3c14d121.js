@@ -726,7 +726,7 @@ function reducer(state = reduxstate, action) {
 // console.log(reduxstate);
 // reduxstate = reducer(reduxstate,{type:'sushil'});
 // console.log(reduxstate);
-const store = (0, _redux.createStore)(reducer);
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.());
 console.log(store);
 store.subscribe(()=>{
     console.log(store.getState());
