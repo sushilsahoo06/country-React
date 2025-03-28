@@ -58,7 +58,7 @@ function reducer(state=reduxstate,action) {
 // console.log(reduxstate);
 
 const store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.())
-const mystore=My_store()
+const mystore=My_store(reducer)
 console.log(mystore)
 console.log(store)
 store.subscribe(()=>{

@@ -663,6 +663,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"kTBnD":[function(require,module,exports,__globalThis) {
 var _redux = require("redux");
+var _myRedux = require("./my_Redux");
 // let prevState=state;
 // function increament(){
 //   //mutating state
@@ -727,6 +728,8 @@ function reducer(state = reduxstate, action) {
 // reduxstate = reducer(reduxstate,{type:'sushil'});
 // console.log(reduxstate);
 const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.());
+const mystore = (0, _myRedux.My_store)(reducer);
+console.log(mystore);
 console.log(store);
 store.subscribe(()=>{
     console.log(store.getState());
@@ -748,7 +751,7 @@ store.dispatch({
     payLoad: 10
 });
 
-},{"redux":"7RvxM"}],"7RvxM":[function(require,module,exports,__globalThis) {
+},{"redux":"7RvxM","./my_Redux":"ifGoA"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1086,6 +1089,24 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["02VzT","kTBnD"], "kTBnD", "parcelRequire94c2")
+},{}],"ifGoA":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "My_store", ()=>My_store);
+function My_store() {
+    let state;
+    const store = {
+        getState () {
+            return state;
+        },
+        getPatch (action) {
+            state = reducer(state, action);
+        },
+        subscribe () {}
+    };
+    return store;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["02VzT","kTBnD"], "kTBnD", "parcelRequire94c2")
 
 //# sourceMappingURL=intro.3c14d121.js.map

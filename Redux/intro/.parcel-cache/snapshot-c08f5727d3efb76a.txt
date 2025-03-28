@@ -1,4 +1,4 @@
-4281
+4282
 61C:\Users\HP\OneDrive\Desktop\country\Redux\intro\package.json133875356522052440 0
 87C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lines-and-columns\LICENSE133875354418176385 0
 101C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\dommatrix.js133875354445788304 0
@@ -12,11 +12,6 @@
 116C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\node_modules\node-addon-api\napi-inl.deprecated.h133875354421054361 0
 85C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\watcher\LICENSE133875354418277583 0
 79C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@msgpackr-extract133875356522017183 1
-92C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\semver\internal\identifiers.js133875354425239866 0
-71C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@mischnic133875354413253590 1
-80C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\src\lmdb-js.h133875354439748269 0
-79C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\has-flag\index.js133875354418961538 0
-53C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist133875392279925858 1
 112C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\node_modules\entities\lib\encode.d.ts.map133875354425857230 0
 109C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\transformer-posthtml\lib\loadPlugins.js133875354439422970 0
 108C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\htmlnano\lib\modules\removeAttributeQuotes.mjs133875354439613053 0
@@ -28,6 +23,14 @@
 91C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\domutils\lib\esm\index.js.map133875354433282900 0
 117C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\node_modules\node-addon-api\tools\eslint-format.js133875354424967630 0
 99C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\node_modules\posthtml-parser133875354421228183 1
+104C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\node-gyp-build-optional-packages\README.md133875354421617072 0
+78C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\type-fest\source133875354435875273 1
+60C:\Users\HP\OneDrive\Desktop\country\Redux\intro\my_Redux.js133876600683487399 0
+92C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\semver\internal\identifiers.js133875354425239866 0
+71C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@mischnic133875354413253590 1
+80C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\src\lmdb-js.h133875354439748269 0
+79C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\has-flag\index.js133875354418961538 0
+53C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist133876600684479500 1
 76C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\tslib\tslib.js133875354420934034 0
 86C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\domelementtype\readme.md133875354422404132 0
 59C:\Users\HP\OneDrive\Desktop\country\Redux\intro\index.html133875357648976211 0
@@ -41,7 +44,7 @@
 110C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lightningcss\node_modules\detect-libc\index.d.ts133875354421923479 0
 61C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules133875356522007151 1
 73C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\detect-libc133875354421134360 1
-58C:\Users\HP\OneDrive\Desktop\country\Redux\intro\script.js133875392278941775 0
+58C:\Users\HP\OneDrive\Desktop\country\Redux\intro\script.js133876599941701834 0
 82C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\redux\dist\redux.mjs133875356521679077 0
 105C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\cosmiconfig\dist\getPropertyByPath.d.ts.map133875354433053650 0
 110C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\node_modules\entities\lib\maps\xml.json133875354424265741 0
@@ -239,7 +242,6 @@
 87C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\domutils\lib\esm\feeds.js133875354418793068 0
 72C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\fill-range133875354419344084 1
 76C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\srcset\license133875354418199642 0
-83C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\lib\index.js133875354419203720 0
 70C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\has-flag133875354419866562 1
 120C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\node_modules\htmlparser2\lib\FeedHandler.d.ts.map133875354422613778 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@swc\helpers\esm\_call_super.js133875354439397844 0
@@ -570,8 +572,6 @@
 90C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\domutils\lib\esm\querying.js133875354423921908 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\regions\GH.js133875354446874634 0
 81C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\type-fest\readme.md133875354419248477 0
-104C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\node-gyp-build-optional-packages\README.md133875354421617072 0
-78C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\type-fest\source133875354435875273 1
 99C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\dependencies\lz4\lib\dll\example133875354441950271 1
 76C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\type-fest\ts41133875354435076225 1
 100C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\test\fixtures\main-global133875354462801357 1
@@ -1390,6 +1390,7 @@
 88C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\cache\lib\index.js133875354431936401 0
 96C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\xhr2.js133875354459498379 0
 81C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\lib\api.js133875354418759784 0
+83C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\posthtml\lib\index.js133875354419203720 0
 95C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\postcss-value-parser\package.json133875354422064719 0
 97C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\postcss-value-parser\lib\index.d.ts133875354422923946 0
 85C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\transformer-raw133875354433907406 1
@@ -1708,9 +1709,9 @@
 148C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\test\fixtures\plugins\node_modules\parcel-transformer-no-engines\index.js133875354459508422 0
 116C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\test\fixtures\invalid-source-not-file\src133875354459422490 1
 104C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\node_modules\node-addon-api\README.md133875354429929772 0
+97C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\htmlparser2\lib\WritableStream.d.ts133875354435182755 0
 80C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\plugin\src133875354431392936 1
 116C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\node_modules\node-addon-api\tools\clang-format.js133875354424304960 0
-97C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\htmlparser2\lib\WritableStream.d.ts133875354435182755 0
 114C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\node_modules\node-addon-api\tools\conversion.js133875354424609405 0
 81C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\lmdb\dict\dict2.txt133875354441897498 0
 88C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\entities\lib\decode.js.map133875354434695722 0
@@ -2516,8 +2517,6 @@
 101C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\reporter-cli\lib\CLIReporter.js133875354456596646 0
 107C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\transformer-css\src\CSSTransformer.js133875354440561081 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\regions\BF.js133875354437273309 0
-107C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\input-inputmode.js133875354447710881 0
-106C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\filereadersync.js133875354446374054 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\regions\BH.js133875354437346242 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\regions\BI.js133875354437404526 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\regions\BT.js133875354438677975 0
@@ -2844,6 +2843,8 @@
 103C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\eventsource.js133875354446238708 0
 113C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\extended-system-fonts.js133875354446238708 0
 97C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\fetch.js133875354446287424 0
+107C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\input-inputmode.js133875354447710881 0
+106C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\filereadersync.js133875354446374054 0
 102C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\filesystem.js133875354446384083 0
 96C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\caniuse-lite\data\features\flac.js133875354446415392 0
 81C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\braces\lib\utils.js133875354422280650 0
@@ -3492,7 +3493,6 @@
 108C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@swc\helpers\cjs\_async_generator_delegate.cjs133875354422352650 0
 105C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@swc\helpers\cjs\_await_async_generator.cjs133875354423809610 0
 95C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@swc\helpers\cjs\_await_value.cjs133875354424011638 0
-87C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\requests133875354461792740 1
 111C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@swc\helpers\cjs\_check_private_redeclaration.cjs133875354424371352 0
 113C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@swc\helpers\cjs\_class_apply_descriptor_update.cjs133875354425428226 0
 116C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\test\fixtures\common-targets\package.json133875354461938490 0
@@ -4158,6 +4158,7 @@
 87C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\index.js133875354459397900 0
 92C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\loadDotEnv.js133875354459573802 0
 88C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\Parcel.js133875354460025494 0
+87C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\requests133875354461792740 1
 96C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\resolveOptions.js133875354460682510 0
 92C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\serializer.js133875354460732512 0
 104C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\@parcel\core\lib\serializerCore.browser.js133875354460860928 0
@@ -4277,6 +4278,6 @@
 89C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\.bin\update-browserslist-db133875354761494611 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\.bin\update-browserslist-db.cmd133875354761494611 0
 93C:\Users\HP\OneDrive\Desktop\country\Redux\intro\node_modules\.bin\update-browserslist-db.ps1133875354761494611 0
-64C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist\index.html133875361168400233 0
-71C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist\intro.3c14d121.js133875392279804335 0
-75C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist\intro.3c14d121.js.map133875392279910817 0
+64C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist\index.html133875707881653516 0
+71C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist\intro.3c14d121.js133876600684434734 0
+75C:\Users\HP\OneDrive\Desktop\country\Redux\intro\dist\intro.3c14d121.js.map133876600684464947 0
