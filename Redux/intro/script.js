@@ -1,4 +1,5 @@
 import{createStore} from 'redux'
+import { My_store } from './my_Redux';
 // let prevState=state;
 // function increament(){
 //   //mutating state
@@ -57,6 +58,8 @@ function reducer(state=reduxstate,action) {
 // console.log(reduxstate);
 
 const store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.())
+const mystore=My_store()
+console.log(mystore)
 console.log(store)
 store.subscribe(()=>{
   console.log(store.getState())
