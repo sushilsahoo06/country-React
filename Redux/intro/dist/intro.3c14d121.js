@@ -664,21 +664,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"kTBnD":[function(require,module,exports,__globalThis) {
 var _redux = require("redux");
 var _myRedux = require("./my_Redux");
-// let prevState=state;
-// function increament(){
-//   //mutating state
-//   // state.count=state.count+1
-//   //not mutating state
-//   state={...state,count:state.count+1}
-// }
-// increament()
-// console.log(state)
-// increament()
-// console.log(state)
-// increament()
-// console.log(state)
-// increament()
-// console.log(state)
 const postCount = document.querySelector('.redux');
 let reduxstate = {
     post: 0,
@@ -717,17 +702,6 @@ function reducer(state = reduxstate, action) {
             return state;
     }
 }
-// console.log(reduxstate);
-// reduxstate = reducer(reduxstate,{type:'post/increment'});
-// console.log(reduxstate);
-// reduxstate = reducer(reduxstate,{type:'post/increment'});
-// console.log(reduxstate);
-// reduxstate = reducer(reduxstate,{type:'post/decrement'});
-// console.log(reduxstate);
-// reduxstate = reducer(reduxstate,{type:'post/incrementBy',payLoad:10});
-// console.log(reduxstate);
-// reduxstate = reducer(reduxstate,{type:'sushil'});
-// console.log(reduxstate);
 const My_store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.());
 const mystore = (0, _myRedux.My_store)(reducer);
 console.log(mystore);
