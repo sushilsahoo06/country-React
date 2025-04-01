@@ -60,10 +60,10 @@ function reducer(state=reduxstate,action) {
 const My_store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.())
 const mystore=My_store(reducer)
 console.log(mystore)
-console.log(My_store)
+
 const unsuscribe=My_store.subscribe(()=>{
   console.log(My_store.getState())
-  postCount.innetText=My_store.getState().post;
+  postCount.innerText=My_store.getState().post;
 })
 
 My_store.dispatch({type:'post/increment'})

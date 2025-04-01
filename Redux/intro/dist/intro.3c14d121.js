@@ -679,6 +679,7 @@ var _myRedux = require("./my_Redux");
 // console.log(state)
 // increament()
 // console.log(state)
+const postCount = document.querySelector('.redux');
 let reduxstate = {
     post: 0,
     name: "sushil",
@@ -730,9 +731,9 @@ function reducer(state = reduxstate, action) {
 const My_store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.());
 const mystore = (0, _myRedux.My_store)(reducer);
 console.log(mystore);
-console.log((0, _myRedux.My_store));
-(0, _myRedux.My_store).subscribe(()=>{
+const unsuscribe = (0, _myRedux.My_store).subscribe(()=>{
     console.log((0, _myRedux.My_store).getState());
+    postCount.innerText = (0, _myRedux.My_store).getState().post;
 });
 (0, _myRedux.My_store).dispatch({
     type: 'post/increment'
