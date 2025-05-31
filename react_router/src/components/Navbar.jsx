@@ -3,7 +3,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <ul>
-        <Link to='/'><li>Home</li></Link>
+      <Link to='/home'><li>Home</li></Link>
         <Link to='/products'><li>Product</li></Link>
         <Link to='/about'><li>About</li></Link>
         <Link to='/contact'><li>Contact</li></Link>

@@ -25,3 +25,4 @@ export function useLocalStorage(key, initialData) {
 
   return [data, updateLocalStorage];
 }
+
