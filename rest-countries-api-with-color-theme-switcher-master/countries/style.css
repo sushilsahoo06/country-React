@@ -1,0 +1,91 @@
+/* General styling */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Nunito, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+main {
+  padding: 24px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.title {
+  font-weight: 800;
+}
+.header {
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.1);
+  padding-inline: 24px;
+}
+.header-content {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin-inline: auto;
+  background-color: hsl(0, 0%, 100%);
+}
+
+/* Container styling */
+.country-container {
+  max-width: 1300px;
+  margin-inline: auto;
+  margin-top: 16px;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center;
+}
+
+/* Country card styling */
+.country-card {
+  display:flex;
+  width: 200px;
+  height: auto;
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  padding-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+  margin: 10px;
+}
+
+.country-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.country-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+}
+
+/* Text section styling */
+.card-text {
+  margin-left: 20px;
+}
+
+.card-text p {
+  margin-block: 5px;
+}
+
+.card-text p b {
+  opacity: 0.8;
+}
+.input-group input{
+  max-width: 350px;
+}
+
+.input-group{
+  margin-top: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}

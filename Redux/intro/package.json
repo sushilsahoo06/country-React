@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "parcel": "^2.14.2"
+  },
+  "dependencies": {
+    "redux": "^5.0.1"
+  }
+}
