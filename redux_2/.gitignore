@@ -1,0 +1,19 @@
+node_modules/
+.parcel-cache/
+dict/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Environment variables
+.env
+.env.* 
