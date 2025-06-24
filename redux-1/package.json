@@ -10,7 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "domain-browser": "^5.7.0",
-    "events": "^3.3.0"
+    "events": "^3.3.0",
+    "os-browserify": "^0.3.0"
   },
   "dependencies": {
     "redux": "^5.0.1"
