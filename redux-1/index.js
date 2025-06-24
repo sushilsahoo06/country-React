@@ -1,7 +1,6 @@
-
-
+import { createStore } from "redux";
 let reducerstate={
-  count:0,
+  post:0,
   name:'sushil',
   age:'19'
 }
@@ -20,11 +19,25 @@ let reducerstate={
 // increment()
 // console.log(state)
 
-function reducer(state){
-  return{...state,count:state.count+1}
-}
-reducerstate=reducer(reducerstate)
-reducerstate=reducer(reducerstate)
-reducerstate=reducer(reducerstate)
-reducerstate=reducer(reducerstate)
+function reducer(state,action){
+  if(action.type==='post/inc'){
+    return{...state,post:state.post+1}
+  }else if(action.type==='post/dec'){
+    return{...state,post:state.post-1}
+  }else if(action.type==='post/incBY'){
+    return {...state,post:state.post+action.paylod}
+  }
+  return state;
 
+}
+reducerstate=reducer(reducerstate,{type:'post/inc'})
+console.log(reducerstate)
+reducerstate=reducer(reducerstate,{type:'post/inc'})
+console.log(reducerstate)
+reducerstate=reducer(reducerstate,{type:'post/dec'})
+console.log(reducerstate)
+reducerstate=reducer(reducerstate,{type:'post/inc'})
+reducerstate=reducer(reducerstate,{type:'post/inc'})
+console.log(reducerstate)
+reducerstate=reducer(reducerstate,{type:'post/incBY',paylod:10})
+console.log(reducerstate)
