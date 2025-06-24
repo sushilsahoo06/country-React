@@ -26,17 +26,17 @@ function reducer(state=initialstate,action){
 
 }
 
-const store=createStore(reducer)
+const store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__?.())
+
 console.log(store.getState())
 
+store.subscribe(()=>{
+  console.log(store.getState())
+})
 store.dispatch({type:'post/dec'});
-console.log(store.getState())
 
 store.dispatch({type:'post/inc'});
-console.log(store.getState())
 
 store.dispatch({type:'post/inc'});
-console.log(store.getState())
 
 store.dispatch({type:'post/incBY',payload:8});
-console.log(store.getState())
