@@ -14,20 +14,13 @@ const initialstate={
 //   state={...state,count:state.count+1}
 // }
 
-// increment()
-// console.log(state)
-// increment()
-// console.log(state)
-// increment()
-// console.log(state)
-
-function reducer(state={initialstate},action){
+function reducer(state=initialstate,action){
   if(action.type==='post/inc'){
     return{...state,post:state.post+1}
   }else if(action.type==='post/dec'){
     return{...state,post:state.post-1}
   }else if(action.type==='post/incBY'){
-    return {...state,post:state.post+action.paylod}
+    return {...state,post:state.post+action.payload}
   }
   return state;
 
@@ -36,4 +29,14 @@ function reducer(state={initialstate},action){
 const store=createStore(reducer)
 console.log(store.getState())
 
-store.dispatch({type:'post/dec'})
+store.dispatch({type:'post/dec'});
+console.log(store.getState())
+
+store.dispatch({type:'post/inc'});
+console.log(store.getState())
+
+store.dispatch({type:'post/inc'});
+console.log(store.getState())
+
+store.dispatch({type:'post/incBY',payload:8});
+console.log(store.getState())
