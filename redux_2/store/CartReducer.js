@@ -3,6 +3,15 @@ export const Cart_Remove_Items='card/removeItem';
 export const Inc_Item_Quantity='card/incItem';
 export const Dec_Item_Quantity='card/decItem';
 
+//Action reators
+// function DecreaseItemsCardQuantity(productId){
+//   return{
+//   type: Dec_Item_Quantity,
+//   payload: { productId }
+// }
+// }
+
+
 const initialstate={
   cartItems:[],
 }

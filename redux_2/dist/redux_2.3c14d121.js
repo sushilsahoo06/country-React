@@ -669,11 +669,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"kTBnD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _redux = require("redux");
-var _cartReducer = require("./CartReducer");
+var _cartReducer = require("./store/CartReducer");
 var _cartReducerDefault = parcelHelpers.interopDefault(_cartReducer);
 var _wishlistReducer = require("./WishlistReducer");
 var _wishlistReducerDefault = parcelHelpers.interopDefault(_wishlistReducer);
-var _productsReducer = require("./ProductsReducer");
+var _productsReducer = require("./store/ProductsReducer");
 var _productsReducerDefault = parcelHelpers.interopDefault(_productsReducer);
 // import productList from './FakeProduct.js';
 // const initialstate = {
@@ -816,7 +816,7 @@ store.dispatch({
 });
 console.log(store.getState());
 
-},{"redux":"7RvxM","./CartReducer":"i0Agk","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","./WishlistReducer":"7dFN5","./ProductsReducer":"8quyd"}],"7RvxM":[function(require,module,exports,__globalThis) {
+},{"redux":"7RvxM","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","./WishlistReducer":"7dFN5","./store/CartReducer":"jYOzJ","./store/ProductsReducer":"ieuGC"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1154,7 +1154,38 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"i0Agk":[function(require,module,exports,__globalThis) {
+},{}],"7dFN5":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Add_Wishlist", ()=>Add_Wishlist);
+parcelHelpers.export(exports, "Remove_Wishlist", ()=>Remove_Wishlist);
+parcelHelpers.export(exports, "default", ()=>WishlistReducer);
+const Add_Wishlist = 'card/addwish';
+const Remove_Wishlist = 'card/removewish';
+const initialstate = {
+    wishList: []
+};
+function WishlistReducer(state = initialstate, action) {
+    switch(action.type){
+        case Add_Wishlist:
+            return {
+                ...state,
+                wishList: [
+                    ...state.wishList,
+                    action.payload
+                ]
+            };
+        case Remove_Wishlist:
+            return {
+                ...state,
+                wishList: state.wishList.filter((list)=>list.productId !== action.payload.productId)
+            };
+        default:
+            return state; // ✅ Always return state for unrecognized actions
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"jYOzJ":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Cart_Add_Items", ()=>Cart_Add_Items);
@@ -1166,6 +1197,13 @@ const Cart_Add_Items = 'card/addItem';
 const Cart_Remove_Items = 'card/removeItem';
 const Inc_Item_Quantity = 'card/incItem';
 const Dec_Item_Quantity = 'card/decItem';
+//Action reators
+// function DecreaseItemsCardQuantity(productId){
+//   return{
+//   type: Dec_Item_Quantity,
+//   payload: { productId }
+// }
+// }
 const initialstate = {
     cartItems: []
 };
@@ -1211,38 +1249,7 @@ function CartReducer(state = initialstate, action) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"7dFN5":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Add_Wishlist", ()=>Add_Wishlist);
-parcelHelpers.export(exports, "Remove_Wishlist", ()=>Remove_Wishlist);
-parcelHelpers.export(exports, "default", ()=>WishlistReducer);
-const Add_Wishlist = 'card/addwish';
-const Remove_Wishlist = 'card/removewish';
-const initialstate = {
-    wishList: []
-};
-function WishlistReducer(state = initialstate, action) {
-    switch(action.type){
-        case Add_Wishlist:
-            return {
-                ...state,
-                wishList: [
-                    ...state.wishList,
-                    action.payload
-                ]
-            };
-        case Remove_Wishlist:
-            return {
-                ...state,
-                wishList: state.wishList.filter((list)=>list.productId !== action.payload.productId)
-            };
-        default:
-            return state; // ✅ Always return state for unrecognized actions
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"8quyd":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"ieuGC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>ProductReducer);
@@ -1255,7 +1262,7 @@ function ProductReducer(state = initialState, action) {
     return state;
 }
 
-},{"./FakeProduct":"ePDoX","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"ePDoX":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","./FakeProduct":"cvUqq"}],"cvUqq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const product = [
