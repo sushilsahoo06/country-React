@@ -668,14 +668,45 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"kTBnD":[function(require,module,exports,__globalThis) {
 var _redux = require("redux");
-var _productList = require("./productList");
+var _fakeProduct = require("./FakeProduct");
 const initialstate = {
-    product: (0, _productList.productList),
+    product: (0, _fakeProduct.Product),
     cartItems: [],
     wishList: []
 };
+function reducer(state = initialstate, action) {
+    // console.log('Reducer triggered:', action);
+    console.log(state);
+    switch(action.type){
+        case 'card/addItem':
+            return {
+                ...state,
+                cartItems: [
+                    ...state.cartItems,
+                    action.payload
+                ]
+            };
+        default:
+            return state; // ✅ Always return state for unrecognized actions
+    }
+}
+const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+store.dispatch({
+    type: 'card/addItem',
+    payload: {
+        productId: 1,
+        quantity: 1
+    }
+});
+store.dispatch({
+    type: 'card/addItem',
+    payload: {
+        productId: 12,
+        quantity: 3
+    }
+});
 
-},{"redux":"7RvxM","./productList":"8X9rl"}],"7RvxM":[function(require,module,exports,__globalThis) {
+},{"redux":"7RvxM","./FakeProduct":"ePDoX"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1013,7 +1044,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"8X9rl":[function(require,module,exports,__globalThis) {
+},{}],"ePDoX":[function(require,module,exports,__globalThis) {
 
 },{}]},["4eRAA","kTBnD"], "kTBnD", "parcelRequire98c7", {})
 
