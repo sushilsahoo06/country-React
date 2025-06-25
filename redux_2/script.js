@@ -9,6 +9,7 @@ const initialstate = {
 };
 const Cart_Add_Items='card/addItem';
 const Cart_Remove_Items='card/removeItem';
+const Inc_Item_Quantity='card/incItem';
 
 function reducer(state = initialstate, action) {
   // console.log('Reducer triggered:', action);
@@ -22,9 +23,17 @@ function reducer(state = initialstate, action) {
       };
     case Cart_Remove_Items:
       return{
-        ...state,cartItems:state.cartItems.fill(item=>item.productId !==action.payload.productId)
+        ...state,cartItems:state.cartItems.filter(item=>item.productId !==action.payload.productId)
       }
-
+    case Inc_Item_Quantity:
+      return{
+        ...state,cartItems:state.cartItems.map((cartItems)=>{
+          if(cartItems.productId===action.payload.productId){
+            return {...cartItems,quantity:cartItems.quantity+1}
+          }
+          return cartItems
+        })
+      }
     default:
       return state; // ✅ Always return state for unrecognized actions
   }
@@ -55,6 +64,11 @@ store.dispatch({
 store.dispatch({
   type: Cart_Remove_Items,
   payload: { productId: 6, quantity: 9 }
+});
+
+store.dispatch({
+  type: Inc_Item_Quantity,
+  payload: { productId: 10, quantity: 10 }
 });
 
 
