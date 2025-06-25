@@ -10,6 +10,7 @@ const initialstate = {
 const Cart_Add_Items='card/addItem';
 const Cart_Remove_Items='card/removeItem';
 const Inc_Item_Quantity='card/incItem';
+const Dec_Item_Quantity='card/decItem';
 
 function reducer(state = initialstate, action) {
   // console.log('Reducer triggered:', action);
@@ -32,6 +33,15 @@ function reducer(state = initialstate, action) {
             return {...cartItems,quantity:cartItems.quantity+1}
           }
           return cartItems
+        })
+      }
+    return Dec_Item_Quantity:
+      return{
+        ...state,cartItems:state.cartItems.map
+        ((cartItems)=>{
+          if(cartItems.productId===action.payload.productId){
+            return{...cartItems,quantity:cartItems.quantity-1}
+          }
         })
       }
     default:
