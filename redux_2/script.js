@@ -35,7 +35,7 @@ function reducer(state = initialstate, action) {
           return cartItems
         })
       }
-    return Dec_Item_Quantity:
+    case Dec_Item_Quantity:
       return{
         ...state,cartItems:state.cartItems.map
         ((cartItems)=>{
@@ -59,10 +59,17 @@ store.dispatch({
   type: Cart_Add_Items,
   payload: { productId: 1, quantity: 1 }
 });
+
 store.dispatch({
   type: Cart_Add_Items,
   payload: { productId: 12, quantity: 3 }
 });
+store.dispatch({
+  type: Dec_Item_Quantity,
+  payload: { productId: 12, quantity: 3 }
+});
+
+
 store.dispatch({
   type: Cart_Add_Items,
   payload: { productId: 10, quantity: 6 }

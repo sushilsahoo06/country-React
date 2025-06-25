@@ -708,6 +708,16 @@ function reducer(state = initialstate, action) {
                     return cartItems;
                 })
             };
+        case Dec_Item_Quantity:
+            return {
+                ...state,
+                cartItems: state.cartItems.map((cartItems)=>{
+                    if (cartItems.productId === action.payload.productId) return {
+                        ...cartItems,
+                        quantity: cartItems.quantity - 1
+                    };
+                })
+            };
         default:
             return state; // ✅ Always return state for unrecognized actions
     }
@@ -722,6 +732,13 @@ store.dispatch({
 });
 store.dispatch({
     type: Cart_Add_Items,
+    payload: {
+        productId: 12,
+        quantity: 3
+    }
+});
+store.dispatch({
+    type: Dec_Item_Quantity,
     payload: {
         productId: 12,
         quantity: 3
