@@ -1,8 +1,9 @@
 import { createStore } from 'redux';
-import {Product} from './FakeProduct';
+import productList from './FakeProduct.js';
+
 
 const initialstate = {
-  product:Product,
+  product:productList,
   cartItems: [],
   wishList: []
 };
@@ -38,5 +39,6 @@ store.dispatch({
   payload: { productId: 12, quantity: 3 }
 });
 
+console.log(store.getState());
 
 
