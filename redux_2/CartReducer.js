@@ -3,7 +3,10 @@ export const Cart_Remove_Items='card/removeItem';
 export const Inc_Item_Quantity='card/incItem';
 export const Dec_Item_Quantity='card/decItem';
 
-export default function CartReducer(state=[],action){
+const initialstate={
+  cartItems:[],
+}
+export default function CartReducer(state=initialstate,action){
    switch (action.type) {
     case Cart_Add_Items:
       return {

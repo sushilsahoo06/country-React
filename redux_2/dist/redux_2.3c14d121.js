@@ -1166,7 +1166,10 @@ const Cart_Add_Items = 'card/addItem';
 const Cart_Remove_Items = 'card/removeItem';
 const Inc_Item_Quantity = 'card/incItem';
 const Dec_Item_Quantity = 'card/decItem';
-function CartReducer(state = [], action) {
+const initialstate = {
+    cartItems: []
+};
+function CartReducer(state = initialstate, action) {
     switch(action.type){
         case Cart_Add_Items:
             return {
@@ -1216,7 +1219,10 @@ parcelHelpers.export(exports, "Remove_Wishlist", ()=>Remove_Wishlist);
 parcelHelpers.export(exports, "default", ()=>WishlistReducer);
 const Add_Wishlist = 'card/addwish';
 const Remove_Wishlist = 'card/removewish';
-function WishlistReducer(state = [], action) {
+const initialstate = {
+    wishList: []
+};
+function WishlistReducer(state = initialstate, action) {
     switch(action.type){
         case Add_Wishlist:
             return {
@@ -1242,7 +1248,10 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>ProductReducer);
 var _fakeProduct = require("./FakeProduct");
 var _fakeProductDefault = parcelHelpers.interopDefault(_fakeProduct);
-function ProductReducer(state = (0, _fakeProductDefault.default), action) {
+const initialState = {
+    product: (0, _fakeProductDefault.default)
+};
+function ProductReducer(state = initialState, action) {
     return state;
 }
 

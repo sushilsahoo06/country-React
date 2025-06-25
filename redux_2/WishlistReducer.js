@@ -1,8 +1,11 @@
 
 export const Add_Wishlist='card/addwish';
 export const Remove_Wishlist='card/removewish';
+const initialstate={
+  wishList:[],
+}
 
-export default function WishlistReducer(state=[],action){
+export default function WishlistReducer(state=initialstate,action){
   switch (action.type) {
     case Add_Wishlist:
       return{
