@@ -669,153 +669,154 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"kTBnD":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _redux = require("redux");
-var _fakeProductJs = require("./FakeProduct.js");
-var _fakeProductJsDefault = parcelHelpers.interopDefault(_fakeProductJs);
-const initialstate = {
-    product: (0, _fakeProductJsDefault.default),
-    cartItems: [],
-    wishList: []
-};
-const Cart_Add_Items = 'card/addItem';
-const Cart_Remove_Items = 'card/removeItem';
-const Inc_Item_Quantity = 'card/incItem';
-const Dec_Item_Quantity = 'card/decItem';
-//wish list
-const Add_Wishlist = 'card/addwish';
-const Remove_Wishlist = 'card/removewish';
-function reducer(state = initialstate, action) {
-    // console.log('Reducer triggered:', action);
-    console.log(state);
-    switch(action.type){
-        case Cart_Add_Items:
-            return {
-                ...state,
-                cartItems: [
-                    ...state.cartItems,
-                    action.payload
-                ]
-            };
-        case Cart_Remove_Items:
-            return {
-                ...state,
-                cartItems: state.cartItems.filter((cartItems)=>cartItems.productId !== action.payload.productId)
-            };
-        case Inc_Item_Quantity:
-            return {
-                ...state,
-                cartItems: state.cartItems.map((cartItems)=>{
-                    if (cartItems.productId === action.payload.productId) return {
-                        ...cartItems,
-                        quantity: cartItems.quantity + 1
-                    };
-                    return cartItems;
-                })
-            };
-        case Dec_Item_Quantity:
-            return {
-                ...state,
-                cartItems: state.cartItems.map((cartItems)=>{
-                    if (cartItems.productId === action.payload.productId) return {
-                        ...cartItems,
-                        quantity: cartItems.quantity - 1
-                    };
-                    return cartItems;
-                })
-            };
-        case Add_Wishlist:
-            return {
-                ...state,
-                wishList: [
-                    ...state.wishList,
-                    action.payload
-                ]
-            };
-        case Remove_Wishlist:
-            return {
-                ...state,
-                wishList: state.wishList.filter((list)=>list.productId !== action.payload.productId)
-            };
-        default:
-            return state; // ✅ Always return state for unrecognized actions
-    }
-}
+var _cartReducer = require("./CartReducer");
+var _cartReducerDefault = parcelHelpers.interopDefault(_cartReducer);
+var _wishlistReducer = require("./WishlistReducer");
+var _wishlistReducerDefault = parcelHelpers.interopDefault(_wishlistReducer);
+var _productsReducer = require("./ProductsReducer");
+var _productsReducerDefault = parcelHelpers.interopDefault(_productsReducer);
+// import productList from './FakeProduct.js';
+// const initialstate = {
+//   product:productList,
+//   cartItems: [],
+//   wishList: []
+// };
+// const Cart_Add_Items='card/addItem';
+// const Cart_Remove_Items='card/removeItem';
+// const Inc_Item_Quantity='card/incItem';
+// const Dec_Item_Quantity='card/decItem';
+// //wish list
+// const Add_Wishlist='card/addwish';
+// const Remove_Wishlist='card/removewish';
+// function reducer(state = initialstate, action) {
+//   // console.log('Reducer triggered:', action);
+//   console.log(state)
+//   switch (action.type) {
+//     case Cart_Add_Items:
+//       return {
+//         ...state,
+//         cartItems: [...state.cartItems, action.payload]
+//       };
+//     case Cart_Remove_Items:
+//       return{
+//         ...state,cartItems:state.cartItems.filter(cartItems=>cartItems.productId !==action.payload.productId)
+//       }
+//     case Inc_Item_Quantity:
+//       return{
+//         ...state,cartItems:state.cartItems.map((cartItems)=>{
+//           if(cartItems.productId===action.payload.productId){
+//             return {...cartItems,quantity:cartItems.quantity+1}
+//           }
+//           return cartItems
+//         })
+//       }
+//     case Dec_Item_Quantity:
+//       return{
+//         ...state,cartItems:state.cartItems.map
+//         ((cartItems)=>{
+//           if(cartItems.productId===action.payload.productId){
+//             return{...cartItems,quantity:cartItems.quantity-1}
+//           }
+//           return cartItems;
+//         })
+//       }
+//     case Add_Wishlist:
+//       return{
+//         ...state,wishList:[...state.wishList,action.payload]
+//       }
+//     case Remove_Wishlist:
+//       return{
+//         ...state,wishList:state.wishList.filter(
+//           (list)=>
+//             list.productId !== action.payload.productId
+//         )
+//       }
+//     default:
+//       return state; // ✅ Always return state for unrecognized actions
+//   }
+// }
+const reducer = (0, _redux.combineReducers)({
+    product: (0, _productsReducerDefault.default),
+    cartItems: (0, _cartReducerDefault.default),
+    wishlist: (0, _wishlistReducerDefault.default)
+});
 const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 store.dispatch({
-    type: Cart_Add_Items,
+    type: (0, _cartReducer.Cart_Add_Items),
     payload: {
         productId: 1,
         quantity: 1
     }
 });
 store.dispatch({
-    type: Cart_Add_Items,
+    type: (0, _cartReducer.Cart_Add_Items),
     payload: {
         productId: 12,
         quantity: 3
     }
 });
 store.dispatch({
-    type: Dec_Item_Quantity,
+    type: (0, _cartReducer.Dec_Item_Quantity),
     payload: {
         productId: 12,
         quantity: 3
     }
 });
 store.dispatch({
-    type: Cart_Add_Items,
+    type: (0, _cartReducer.Cart_Add_Items),
     payload: {
         productId: 10,
         quantity: 6
     }
 });
 store.dispatch({
-    type: Cart_Add_Items,
+    type: (0, _cartReducer.Cart_Add_Items),
     payload: {
         productId: 6,
         quantity: 9
     }
 });
 store.dispatch({
-    type: Cart_Remove_Items,
+    type: (0, _cartReducer.Cart_Remove_Items),
     payload: {
         productId: 6,
         quantity: 9
     }
 });
 store.dispatch({
-    type: Inc_Item_Quantity,
+    type: (0, _cartReducer.Inc_Item_Quantity),
     payload: {
         productId: 10,
         quantity: 10
     }
 });
 store.dispatch({
-    type: Add_Wishlist,
+    type: (0, _wishlistReducer.Add_Wishlist),
     payload: {
         productId: 10
     }
 });
 store.dispatch({
-    type: Add_Wishlist,
+    type: (0, _wishlistReducer.Add_Wishlist),
     payload: {
         productId: 6
     }
 });
 store.dispatch({
-    type: Add_Wishlist,
+    type: (0, _wishlistReducer.Add_Wishlist),
     payload: {
         productId: 12
     }
 });
 store.dispatch({
-    type: Remove_Wishlist,
+    type: (0, _wishlistReducer.Remove_Wishlist),
     payload: {
         productId: 12
     }
 });
 console.log(store.getState());
 
-},{"redux":"7RvxM","./FakeProduct.js":"ePDoX","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"7RvxM":[function(require,module,exports,__globalThis) {
+},{"redux":"7RvxM","./CartReducer":"i0Agk","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","./WishlistReducer":"7dFN5","./ProductsReducer":"8quyd"}],"7RvxM":[function(require,module,exports,__globalThis) {
 // src/utils/formatProdErrorMessage.ts
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1153,7 +1154,99 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"ePDoX":[function(require,module,exports,__globalThis) {
+},{}],"i0Agk":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Cart_Add_Items", ()=>Cart_Add_Items);
+parcelHelpers.export(exports, "Cart_Remove_Items", ()=>Cart_Remove_Items);
+parcelHelpers.export(exports, "Inc_Item_Quantity", ()=>Inc_Item_Quantity);
+parcelHelpers.export(exports, "Dec_Item_Quantity", ()=>Dec_Item_Quantity);
+parcelHelpers.export(exports, "default", ()=>CartReducer);
+const Cart_Add_Items = 'card/addItem';
+const Cart_Remove_Items = 'card/removeItem';
+const Inc_Item_Quantity = 'card/incItem';
+const Dec_Item_Quantity = 'card/decItem';
+function CartReducer(state = [], action) {
+    switch(action.type){
+        case Cart_Add_Items:
+            return {
+                ...state,
+                cartItems: [
+                    ...state.cartItems,
+                    action.payload
+                ]
+            };
+        case Cart_Remove_Items:
+            return {
+                ...state,
+                cartItems: state.cartItems.filter((cartItems)=>cartItems.productId !== action.payload.productId)
+            };
+        case Inc_Item_Quantity:
+            return {
+                ...state,
+                cartItems: state.cartItems.map((cartItems)=>{
+                    if (cartItems.productId === action.payload.productId) return {
+                        ...cartItems,
+                        quantity: cartItems.quantity + 1
+                    };
+                    return cartItems;
+                })
+            };
+        case Dec_Item_Quantity:
+            return {
+                ...state,
+                cartItems: state.cartItems.map((cartItems)=>{
+                    if (cartItems.productId === action.payload.productId) return {
+                        ...cartItems,
+                        quantity: cartItems.quantity - 1
+                    };
+                    return cartItems;
+                })
+            };
+        default:
+            return state; // ✅ Always return state for unrecognized actions
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"7dFN5":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Add_Wishlist", ()=>Add_Wishlist);
+parcelHelpers.export(exports, "Remove_Wishlist", ()=>Remove_Wishlist);
+parcelHelpers.export(exports, "default", ()=>WishlistReducer);
+const Add_Wishlist = 'card/addwish';
+const Remove_Wishlist = 'card/removewish';
+function WishlistReducer(state = [], action) {
+    switch(action.type){
+        case Add_Wishlist:
+            return {
+                ...state,
+                wishList: [
+                    ...state.wishList,
+                    action.payload
+                ]
+            };
+        case Remove_Wishlist:
+            return {
+                ...state,
+                wishList: state.wishList.filter((list)=>list.productId !== action.payload.productId)
+            };
+        default:
+            return state; // ✅ Always return state for unrecognized actions
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"8quyd":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>ProductReducer);
+var _fakeProduct = require("./FakeProduct");
+var _fakeProductDefault = parcelHelpers.interopDefault(_fakeProduct);
+function ProductReducer(state = (0, _fakeProductDefault.default), action) {
+    return state;
+}
+
+},{"./FakeProduct":"ePDoX","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"ePDoX":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const product = [
