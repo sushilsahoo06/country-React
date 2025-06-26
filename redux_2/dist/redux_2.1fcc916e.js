@@ -696,10 +696,10 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
             lineNumber: 13,
             columnNumber: 13
         }, undefined),
-        Children: [
+        children: [
             {
                 path: '/',
-                Element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, {
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {}, void 0, false, {
                     fileName: "src/main.js",
                     lineNumber: 17,
                     columnNumber: 17
@@ -707,7 +707,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
             },
             {
                 path: '/cart',
-                Element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
+                element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
                     fileName: "src/main.js",
                     lineNumber: 21,
                     columnNumber: 17
@@ -17979,30 +17979,31 @@ $parcel$ReactRefreshHelpers$0bfa.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>app);
+parcelHelpers.export(exports, "default", ()=>App);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _appCss = require("../App.css");
-//import { useSelector } from 'react-redux';
 var _reactRouterDom = require("react-router-dom");
 var _header = require("../components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
-function app() {
-    //const productList=useSelector((state)=>state.product);
+function App() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/app.js",
-                lineNumber: 12,
+                lineNumber: 8,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                 fileName: "src/app.js",
-                lineNumber: 13,
+                lineNumber: 9,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
+_c = App;
+var _c;
+$RefreshReg$(_c, "App");
 
   $parcel$ReactRefreshHelpers$0bfa.postlude(module);
 } finally {
@@ -27788,35 +27789,14 @@ parcelHelpers.export(exports, "default", ()=>Cart);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _cartltem = require("../components/Cartltem");
+var _reactRedux = require("react-redux");
+var _cartltem = require("../components/Cartltem"); // Make sure spelling is correct!
 var _cartltemDefault = parcelHelpers.interopDefault(_cartltem);
+var _s = $RefreshSig$();
 function Cart() {
-    const cartItems = [
-        {
-            id: 1,
-            title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-            imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-            quantity: 1,
-            rating: 3.9,
-            price: 109.95
-        },
-        {
-            id: 2,
-            title: 'Mens Cotton Jacket',
-            imageUrl: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-            quantity: 1,
-            rating: 4.7,
-            price: 55.99
-        },
-        {
-            id: 3,
-            title: 'Mens Casual Slim Fit',
-            imageUrl: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
-            quantity: 1,
-            rating: 2.1,
-            price: 15.99
-        }
-    ];
+    _s();
+    const cartItems = (0, _reactRedux.useSelector)((state)=>state.cartItems.cartItems); // ✅ Check shape
+    const totalPrice = cartItems.reduce((total, item)=>total + item.price * item.quantity, 0);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "cart-container",
         children: [
@@ -27824,7 +27804,7 @@ function Cart() {
                 children: "Items in Your Cart"
             }, void 0, false, {
                 fileName: "pages/Cart.js",
-                lineNumber: 34,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27838,7 +27818,7 @@ function Cart() {
                                 children: "Item"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 37,
+                                lineNumber: 18,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27846,7 +27826,7 @@ function Cart() {
                                 children: "Price"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 38,
+                                lineNumber: 19,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27854,7 +27834,7 @@ function Cart() {
                                 children: "Quantity"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 39,
+                                lineNumber: 20,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27862,13 +27842,13 @@ function Cart() {
                                 children: "Total"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 40,
+                                lineNumber: 21,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "pages/Cart.js",
-                        lineNumber: 36,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this),
                     cartItems.map(({ id, title, rating, price, imageUrl, quantity })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartltemDefault.default), {
@@ -27879,7 +27859,7 @@ function Cart() {
                             rating: rating
                         }, id, false, {
                             fileName: "pages/Cart.js",
-                            lineNumber: 43,
+                            lineNumber: 25,
                             columnNumber: 11
                         }, this)),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27887,46 +27867,54 @@ function Cart() {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 53,
+                                lineNumber: 36,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 54,
+                                lineNumber: 37,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 55,
+                                lineNumber: 38,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "total",
-                                children: "$500"
-                            }, void 0, false, {
+                                children: [
+                                    "$",
+                                    totalPrice.toFixed(2)
+                                ]
+                            }, void 0, true, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 56,
+                                lineNumber: 39,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "pages/Cart.js",
-                        lineNumber: 52,
+                        lineNumber: 35,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "pages/Cart.js",
-                lineNumber: 35,
+                lineNumber: 16,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "pages/Cart.js",
-        lineNumber: 33,
+        lineNumber: 14,
         columnNumber: 5
     }, this);
 }
+_s(Cart, "sOGYiwJY+kD+ABxufRt7JbvggIE=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = Cart;
 var _c;
 $RefreshReg$(_c, "Cart");
@@ -27936,7 +27924,7 @@ $RefreshReg$(_c, "Cart");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","../components/Cartltem":"20yJW"}],"20yJW":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","react-redux":"hbNxT","../components/Cartltem":"20yJW"}],"20yJW":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$f58c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$f58c.init();
 var prevRefreshReg = globalThis.$RefreshReg$;

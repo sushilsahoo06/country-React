@@ -1,19 +1,12 @@
-
 import '../App.css';
-//import { useSelector } from 'react-redux';
-import { Outlet } from 'react-router-dom'
-import Header from '../components/Header'
+import { Outlet } from 'react-router-dom';
+import Header from '../components/Header';
 
-export default function app() {
-  //const productList=useSelector((state)=>state.product);
-  
+export default function App() {
   return (
     <>
-      <Header/>
-      <Outlet/>
+      <Header />
+      <Outlet />
     </>
-
   );
 }
-
-
