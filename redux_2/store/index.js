@@ -9,7 +9,7 @@ import CartReducer, {
 import WishlistReducer, {
   Add_Wishlist,
   Remove_Wishlist,
-} from "../WishlistReducer";
+} from "./WishlistReducer";
 import ProductReducer from "./ProductsReducer";
 
 // import productList from './FakeProduct.js';
@@ -87,6 +87,7 @@ const store = createStore(
   reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+export default store;
 
 // store.dispatch({
 //   type: Cart_Add_Items,

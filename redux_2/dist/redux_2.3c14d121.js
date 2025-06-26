@@ -1248,6 +1248,9 @@ function CartReducer(state = initialstate, action) {
             return state; // ✅ Always return state for unrecognized actions
     }
 }
+_c = CartReducer;
+var _c;
+$RefreshReg$(_c, "CartReducer");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"ieuGC":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1261,6 +1264,9 @@ const initialState = {
 function ProductReducer(state = initialState, action) {
     return state;
 }
+_c = ProductReducer;
+var _c;
+$RefreshReg$(_c, "ProductReducer");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","./FakeProduct":"cvUqq"}],"cvUqq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
