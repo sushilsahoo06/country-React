@@ -1,26 +1,18 @@
-import { useSelector } from 'react-redux';
-import ProductCard from '../components/Product';
+
 import '../App.css';
+//import { useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom'
+import Header from '../components/Header'
 
-export default function App() {
-  const productList = useSelector((state) => state.product);
-
+export default function app() {
+  //const productList=useSelector((state)=>state.product);
+  
   return (
-    <div className="products-container">
-      {Array.isArray(productList) && productList.length > 0 ? (
-        productList.map(({ title, rating, price, image }, index) => (
-          <ProductCard
-            key={index}
-            title={title}
-            rating={rating?.rate}
-            price={price}
-            imageUrl={image}
-          />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+    <>
+      <Header/>
+      <Outlet/>
+    </>
+
   );
 }
 
