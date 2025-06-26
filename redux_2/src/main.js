@@ -6,28 +6,35 @@ import store from '../store';
 import App from './app';   
 import Home from '../pages/Home';
 import Cart from '../pages/Cart';
-               
-const router=createBrowserRouter([
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      children: [
+        {
+          path: '/',
+          element: <Home />
+        },
+        {
+          path: '/cart',
+          element: <Cart />
+        }
+      ]
+    }
+  ],
   {
-    path:'/',
-    Element:<App/>,
-    children:[
-      {
-        path:'/',
-        element:<Home/>
-      },
-      {
-        path:'/cart',
-        element:<Cart/>
-      }
-    ]
+    future: {
+      v7_startTransition: true
+    }
   }
-])
+);
+
 createRoot(document.querySelector('#root')).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </Provider>
-    
   </StrictMode>
 );

@@ -1,14 +1,33 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import CartItem from '../components/Cartltem'; // Make sure spelling is correct!
-
+import React from 'react'
+import CartItem from '../components/Cartltem'
+import '../App.css';
 export default function Cart() {
-  const cartItems = useSelector((state) => state.cartItems.cartItems); // ✅ Check shape
-
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const cartItems = [
+    {
+      id: 1,
+      title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+      imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+      quantity: 1,
+      rating: 3.9,
+      price: 109.95,
+    },
+    {
+      id: 2,
+      title: 'Mens Cotton Jacket',
+      imageUrl: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
+      quantity: 1,
+      rating: 4.7,
+      price: 55.99,
+    },
+    {
+      id: 3,
+      title: 'Mens Casual Slim Fit',
+      imageUrl: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
+      quantity: 1,
+      rating: 2.1,
+      price: 15.99,
+    },
+  ]
 
   return (
     <div className="cart-container">
@@ -20,7 +39,6 @@ export default function Cart() {
           <div className="quantity">Quantity</div>
           <div className="total">Total</div>
         </div>
-
         {cartItems.map(({ id, title, rating, price, imageUrl, quantity }) => (
           <CartItem
             key={id}
@@ -31,14 +49,13 @@ export default function Cart() {
             rating={rating}
           />
         ))}
-
         <div className="cart-header cart-item-container">
           <div></div>
           <div></div>
           <div></div>
-          <div className="total">${totalPrice.toFixed(2)}</div>
+          <div className="total">$500</div>
         </div>
       </div>
     </div>
-  );
+  )
 }
