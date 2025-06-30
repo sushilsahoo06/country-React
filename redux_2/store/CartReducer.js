@@ -1,3 +1,5 @@
+import { act } from "react";
+
 // Action Types
 export const Cart_Add_Items = 'card/addItem';
 export const Cart_Remove_Items = 'card/removeItem';
@@ -33,6 +35,17 @@ const initialstate={
 export default function CartReducer(state=initialstate,action){
    switch (action.type) {
     case Cart_Add_Items:
+      const existingItem=state.find(
+        (item)=>item.productId === action.payload.productId
+      )
+      if(existingItem){
+        return state.map((cartItems)=>{
+          if(cartItems.productId === existingItem.productId){
+            return {...cartItems,quantity:cartItems.quantity+1}
+          }
+          return cartItems;
+        })
+      }
       return {
         ...state,
         cartItems: [...state.cartItems, action.payload]

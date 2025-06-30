@@ -26831,12 +26831,13 @@ var _fakeProductDefault = parcelHelpers.interopDefault(_fakeProduct);
 function Home() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "products-container",
-        children: Array.isArray((0, _fakeProductDefault.default)) && (0, _fakeProductDefault.default).length > 0 ? (0, _fakeProductDefault.default).map(({ title, rating, price, image }, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+        children: Array.isArray((0, _fakeProductDefault.default)) && (0, _fakeProductDefault.default).length > 0 ? (0, _fakeProductDefault.default).map(({ title, rating, price, image, id })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDefault.default), {
+                productId: id,
                 title: title,
                 rating: rating?.rate,
                 price: price,
                 imageUrl: image
-            }, index, false, {
+            }, id, false, {
                 fileName: "pages/Home.js",
                 lineNumber: 10,
                 columnNumber: 11
@@ -26844,7 +26845,7 @@ function Home() {
             children: "Loading..."
         }, void 0, false, {
             fileName: "pages/Home.js",
-            lineNumber: 19,
+            lineNumber: 21,
             columnNumber: 9
         }, this)
     }, void 0, false, {
@@ -26875,8 +26876,9 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Product);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRedux = require("react-redux");
+var _cartReducer = require("../store/CartReducer");
 var _s = $RefreshSig$();
-function Product({ title, rating, price, imageUrl }) {
+function Product({ productId, title, rating, price, imageUrl }) {
     _s();
     const dispatch = (0, _reactRedux.useDispatch)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -26889,12 +26891,12 @@ function Product({ title, rating, price, imageUrl }) {
                     alt: title
                 }, void 0, false, {
                     fileName: "components/Product.js",
-                    lineNumber: 8,
+                    lineNumber: 9,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "components/Product.js",
-                lineNumber: 7,
+                lineNumber: 8,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -26905,17 +26907,17 @@ function Product({ title, rating, price, imageUrl }) {
                         children: title
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 12,
+                        lineNumber: 13,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "components/Product.js",
-                    lineNumber: 11,
+                    lineNumber: 12,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "components/Product.js",
-                lineNumber: 10,
+                lineNumber: 11,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -26929,7 +26931,7 @@ function Product({ title, rating, price, imageUrl }) {
                         ]
                     }, void 0, true, {
                         fileName: "components/Product.js",
-                        lineNumber: 16,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -26940,42 +26942,43 @@ function Product({ title, rating, price, imageUrl }) {
                         ]
                     }, void 0, true, {
                         fileName: "components/Product.js",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Product.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "cta-container",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>dispatch((0, _cartReducer.addItemToCart)(productId)),
                         children: "Add to Cart"
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 20,
+                        lineNumber: 21,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "Buy Now"
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 21,
+                        lineNumber: 22,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Product.js",
-                lineNumber: 19,
+                lineNumber: 20,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/Product.js",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 5
     }, this);
 }
@@ -26993,7 +26996,114 @@ $RefreshReg$(_c, "Product");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","react-redux":"hbNxT"}],"cvUqq":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","react-redux":"hbNxT","../store/CartReducer":"jYOzJ"}],"jYOzJ":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$3b3e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$3b3e.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3b3e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Cart_Add_Items", ()=>Cart_Add_Items);
+parcelHelpers.export(exports, "Cart_Remove_Items", ()=>Cart_Remove_Items);
+parcelHelpers.export(exports, "Inc_Item_Quantity", ()=>Inc_Item_Quantity);
+parcelHelpers.export(exports, "Dec_Item_Quantity", ()=>Dec_Item_Quantity);
+parcelHelpers.export(exports, "addItemToCart", ()=>addItemToCart);
+parcelHelpers.export(exports, "removeItemFromCart", ()=>removeItemFromCart);
+parcelHelpers.export(exports, "increaseItemQuantity", ()=>increaseItemQuantity);
+parcelHelpers.export(exports, "decreaseItemQuantity", ()=>decreaseItemQuantity);
+parcelHelpers.export(exports, "default", ()=>CartReducer);
+var _react = require("react");
+const Cart_Add_Items = 'card/addItem';
+const Cart_Remove_Items = 'card/removeItem';
+const Inc_Item_Quantity = 'card/incItem';
+const Dec_Item_Quantity = 'card/decItem';
+const addItemToCart = (product)=>({
+        type: Cart_Add_Items,
+        payload: product
+    });
+const removeItemFromCart = (productId)=>({
+        type: Cart_Remove_Items,
+        payload: {
+            productId
+        }
+    });
+const increaseItemQuantity = (productId)=>({
+        type: Inc_Item_Quantity,
+        payload: {
+            productId
+        }
+    });
+const decreaseItemQuantity = (productId)=>({
+        type: Dec_Item_Quantity,
+        payload: {
+            productId
+        }
+    });
+const initialstate = {
+    cartItems: []
+};
+function CartReducer(state = initialstate, action) {
+    switch(action.type){
+        case Cart_Add_Items:
+            const existingItem = state.find((item)=>item.productId === action.payload.productId);
+            if (existingItem) return state.map((cartItems)=>{
+                if (cartItems.productId === existingItem.productId) return {
+                    ...cartItems,
+                    quantity: cartItems.quantity + 1
+                };
+                return cartItems;
+            });
+            return {
+                ...state,
+                cartItems: [
+                    ...state.cartItems,
+                    action.payload
+                ]
+            };
+        case Cart_Remove_Items:
+            return {
+                ...state,
+                cartItems: state.cartItems.filter((cartItems)=>cartItems.productId !== action.payload.productId)
+            };
+        case Inc_Item_Quantity:
+            return {
+                ...state,
+                cartItems: state.cartItems.map((cartItems)=>{
+                    if (cartItems.productId === action.payload.productId) return {
+                        ...cartItems,
+                        quantity: cartItems.quantity + 1
+                    };
+                    return cartItems;
+                })
+            };
+        case Dec_Item_Quantity:
+            return {
+                ...state,
+                cartItems: state.cartItems.map((cartItems)=>{
+                    if (cartItems.productId === action.payload.productId) return {
+                        ...cartItems,
+                        quantity: cartItems.quantity - 1
+                    };
+                    return cartItems;
+                })
+            };
+        default:
+            return state; // ✅ Always return state for unrecognized actions
+    }
+}
+_c = CartReducer;
+var _c;
+$RefreshReg$(_c, "CartReducer");
+
+  $parcel$ReactRefreshHelpers$3b3e.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","react":"jMk1U","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J"}],"cvUqq":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 const product = [
@@ -27881,93 +27991,6 @@ function applyMiddleware(...middlewares) {
 function isAction(action) {
     return isPlainObject(action) && "type" in action && typeof action.type === "string";
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"jYOzJ":[function(require,module,exports,__globalThis) {
-// Action Types
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Cart_Add_Items", ()=>Cart_Add_Items);
-parcelHelpers.export(exports, "Cart_Remove_Items", ()=>Cart_Remove_Items);
-parcelHelpers.export(exports, "Inc_Item_Quantity", ()=>Inc_Item_Quantity);
-parcelHelpers.export(exports, "Dec_Item_Quantity", ()=>Dec_Item_Quantity);
-parcelHelpers.export(exports, "addItemToCart", ()=>addItemToCart);
-parcelHelpers.export(exports, "removeItemFromCart", ()=>removeItemFromCart);
-parcelHelpers.export(exports, "increaseItemQuantity", ()=>increaseItemQuantity);
-parcelHelpers.export(exports, "decreaseItemQuantity", ()=>decreaseItemQuantity);
-parcelHelpers.export(exports, "default", ()=>CartReducer);
-const Cart_Add_Items = 'card/addItem';
-const Cart_Remove_Items = 'card/removeItem';
-const Inc_Item_Quantity = 'card/incItem';
-const Dec_Item_Quantity = 'card/decItem';
-const addItemToCart = (product)=>({
-        type: Cart_Add_Items,
-        payload: product
-    });
-const removeItemFromCart = (productId)=>({
-        type: Cart_Remove_Items,
-        payload: {
-            productId
-        }
-    });
-const increaseItemQuantity = (productId)=>({
-        type: Inc_Item_Quantity,
-        payload: {
-            productId
-        }
-    });
-const decreaseItemQuantity = (productId)=>({
-        type: Dec_Item_Quantity,
-        payload: {
-            productId
-        }
-    });
-const initialstate = {
-    cartItems: []
-};
-function CartReducer(state = initialstate, action) {
-    switch(action.type){
-        case Cart_Add_Items:
-            return {
-                ...state,
-                cartItems: [
-                    ...state.cartItems,
-                    action.payload
-                ]
-            };
-        case Cart_Remove_Items:
-            return {
-                ...state,
-                cartItems: state.cartItems.filter((cartItems)=>cartItems.productId !== action.payload.productId)
-            };
-        case Inc_Item_Quantity:
-            return {
-                ...state,
-                cartItems: state.cartItems.map((cartItems)=>{
-                    if (cartItems.productId === action.payload.productId) return {
-                        ...cartItems,
-                        quantity: cartItems.quantity + 1
-                    };
-                    return cartItems;
-                })
-            };
-        case Dec_Item_Quantity:
-            return {
-                ...state,
-                cartItems: state.cartItems.map((cartItems)=>{
-                    if (cartItems.productId === action.payload.productId) return {
-                        ...cartItems,
-                        quantity: cartItems.quantity - 1
-                    };
-                    return cartItems;
-                })
-            };
-        default:
-            return state; // ✅ Always return state for unrecognized actions
-    }
-}
-_c = CartReducer;
-var _c;
-$RefreshReg$(_c, "CartReducer");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"4OXok":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
