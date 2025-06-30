@@ -26955,7 +26955,13 @@ function Product({ productId, title, rating, price, imageUrl }) {
                 className: "cta-container",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                        onClick: ()=>dispatch((0, _cartReducer.addItemToCart)(productId)),
+                        onClick: ()=>dispatch((0, _cartReducer.addItemToCart)({
+                                productId,
+                                title,
+                                rating,
+                                price,
+                                imageUrl
+                            })),
                         children: "Add to Cart"
                     }, void 0, false, {
                         fileName: "components/Product.js",
@@ -27020,9 +27026,9 @@ const Cart_Add_Items = 'card/addItem';
 const Cart_Remove_Items = 'card/removeItem';
 const Inc_Item_Quantity = 'card/incItem';
 const Dec_Item_Quantity = 'card/decItem';
-const addItemToCart = (product)=>({
+const addItemToCart = (productData)=>({
         type: Cart_Add_Items,
-        payload: product
+        payload: productData
     });
 const removeItemFromCart = (productId)=>({
         type: Cart_Remove_Items,

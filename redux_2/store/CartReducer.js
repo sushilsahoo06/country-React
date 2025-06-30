@@ -7,9 +7,9 @@ export const Inc_Item_Quantity = 'card/incItem';
 export const Dec_Item_Quantity = 'card/decItem';
 
 // ✅ Action Creators
-export const addItemToCart = (product) => ({
+export const addItemToCart = (productData) => ({
   type: Cart_Add_Items,
-  payload: product,
+  payload: productData,
 });
 
 export const removeItemFromCart = (productId) => ({
