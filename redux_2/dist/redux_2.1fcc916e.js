@@ -17255,50 +17255,79 @@ const reducer = (0, _redux.combineReducers)({
 });
 const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 exports.default = store;
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 1, quantity: 1 },
-// });
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 12, quantity: 3 },
-// });
-// store.dispatch({
-//   type: Dec_Item_Quantity,
-//   payload: { productId: 12, quantity: 3 },
-// });
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 10, quantity: 6 },
-// });
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 6, quantity: 9 },
-// });
-// store.dispatch({
-//   type: Cart_Remove_Items,
-//   payload: { productId: 6, quantity: 9 },
-// });
-// store.dispatch({
-//   type: Inc_Item_Quantity,
-//   payload: { productId: 10, quantity: 10 },
-// });
-// store.dispatch({
-//   type: Add_Wishlist,
-//   payload: { productId: 10 },
-// });
-// store.dispatch({
-//   type: Add_Wishlist,
-//   payload: { productId: 6 },
-// });
-// store.dispatch({
-//   type: Add_Wishlist,
-//   payload: { productId: 12 },
-// });
-// store.dispatch({
-//   type: Remove_Wishlist,
-//   payload: { productId: 12 },
-// });
+store.dispatch({
+    type: (0, _cartReducer.Cart_Add_Items),
+    payload: {
+        productId: 1,
+        quantity: 1
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.Cart_Add_Items),
+    payload: {
+        productId: 12,
+        quantity: 3
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.Dec_Item_Quantity),
+    payload: {
+        productId: 12,
+        quantity: 3
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.Cart_Add_Items),
+    payload: {
+        productId: 10,
+        quantity: 6
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.Cart_Add_Items),
+    payload: {
+        productId: 6,
+        quantity: 9
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.Cart_Remove_Items),
+    payload: {
+        productId: 6,
+        quantity: 9
+    }
+});
+store.dispatch({
+    type: (0, _cartReducer.Inc_Item_Quantity),
+    payload: {
+        productId: 10,
+        quantity: 10
+    }
+});
+store.dispatch({
+    type: (0, _wishlistReducer.Add_Wishlist),
+    payload: {
+        productId: 10
+    }
+});
+store.dispatch({
+    type: (0, _wishlistReducer.Add_Wishlist),
+    payload: {
+        productId: 6
+    }
+});
+store.dispatch({
+    type: (0, _wishlistReducer.Add_Wishlist),
+    payload: {
+        productId: 12
+    }
+});
+store.dispatch({
+    type: (0, _wishlistReducer.Remove_Wishlist),
+    payload: {
+        productId: 12
+    }
+});
 console.log(store.getState());
 
 },{"redux":"7RvxM","./CartReducer":"jYOzJ","./WishlistReducer":"4OXok","./ProductsReducer":"ieuGC","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM"}],"7RvxM":[function(require,module,exports,__globalThis) {
@@ -27669,7 +27698,11 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>Product);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
 function Product({ title, rating, price, imageUrl }) {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "product",
         children: [
@@ -27680,12 +27713,12 @@ function Product({ title, rating, price, imageUrl }) {
                     alt: title
                 }, void 0, false, {
                     fileName: "components/Product.js",
-                    lineNumber: 5,
+                    lineNumber: 8,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "components/Product.js",
-                lineNumber: 4,
+                lineNumber: 7,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27696,17 +27729,17 @@ function Product({ title, rating, price, imageUrl }) {
                         children: title
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 9,
+                        lineNumber: 12,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "components/Product.js",
-                    lineNumber: 8,
+                    lineNumber: 11,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "components/Product.js",
-                lineNumber: 7,
+                lineNumber: 10,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27720,7 +27753,7 @@ function Product({ title, rating, price, imageUrl }) {
                         ]
                     }, void 0, true, {
                         fileName: "components/Product.js",
-                        lineNumber: 13,
+                        lineNumber: 16,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27731,13 +27764,13 @@ function Product({ title, rating, price, imageUrl }) {
                         ]
                     }, void 0, true, {
                         fileName: "components/Product.js",
-                        lineNumber: 14,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Product.js",
-                lineNumber: 12,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27747,29 +27780,34 @@ function Product({ title, rating, price, imageUrl }) {
                         children: "Add to Cart"
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 17,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         children: "Buy Now"
                     }, void 0, false, {
                         fileName: "components/Product.js",
-                        lineNumber: 18,
+                        lineNumber: 21,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Product.js",
-                lineNumber: 16,
+                lineNumber: 19,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/Product.js",
-        lineNumber: 3,
+        lineNumber: 6,
         columnNumber: 5
     }, this);
 }
+_s(Product, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = Product;
 var _c;
 $RefreshReg$(_c, "Product");
@@ -27779,7 +27817,7 @@ $RefreshReg$(_c, "Product");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J"}],"ovGBa":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","react-redux":"hbNxT"}],"ovGBa":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$bb02 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$bb02.init();
 var prevRefreshReg = globalThis.$RefreshReg$;

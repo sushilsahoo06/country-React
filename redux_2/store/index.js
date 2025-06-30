@@ -89,53 +89,53 @@ const store = createStore(
 );
 export default store;
 
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 1, quantity: 1 },
-// });
+store.dispatch({
+  type: Cart_Add_Items,
+  payload: { productId: 1, quantity: 1 },
+});
 
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 12, quantity: 3 },
-// });
-// store.dispatch({
-//   type: Dec_Item_Quantity,
-//   payload: { productId: 12, quantity: 3 },
-// });
+store.dispatch({
+  type: Cart_Add_Items,
+  payload: { productId: 12, quantity: 3 },
+});
+store.dispatch({
+  type: Dec_Item_Quantity,
+  payload: { productId: 12, quantity: 3 },
+});
 
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 10, quantity: 6 },
-// });
-// store.dispatch({
-//   type: Cart_Add_Items,
-//   payload: { productId: 6, quantity: 9 },
-// });
-// store.dispatch({
-//   type: Cart_Remove_Items,
-//   payload: { productId: 6, quantity: 9 },
-// });
+store.dispatch({
+  type: Cart_Add_Items,
+  payload: { productId: 10, quantity: 6 },
+});
+store.dispatch({
+  type: Cart_Add_Items,
+  payload: { productId: 6, quantity: 9 },
+});
+store.dispatch({
+  type: Cart_Remove_Items,
+  payload: { productId: 6, quantity: 9 },
+});
 
-// store.dispatch({
-//   type: Inc_Item_Quantity,
-//   payload: { productId: 10, quantity: 10 },
-// });
+store.dispatch({
+  type: Inc_Item_Quantity,
+  payload: { productId: 10, quantity: 10 },
+});
 
-// store.dispatch({
-//   type: Add_Wishlist,
-//   payload: { productId: 10 },
-// });
-// store.dispatch({
-//   type: Add_Wishlist,
-//   payload: { productId: 6 },
-// });
-// store.dispatch({
-//   type: Add_Wishlist,
-//   payload: { productId: 12 },
-// });
-// store.dispatch({
-//   type: Remove_Wishlist,
-//   payload: { productId: 12 },
-// });
+store.dispatch({
+  type: Add_Wishlist,
+  payload: { productId: 10 },
+});
+store.dispatch({
+  type: Add_Wishlist,
+  payload: { productId: 6 },
+});
+store.dispatch({
+  type: Add_Wishlist,
+  payload: { productId: 12 },
+});
+store.dispatch({
+  type: Remove_Wishlist,
+  payload: { productId: 12 },
+});
 
 console.log(store.getState());
