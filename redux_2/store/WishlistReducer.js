@@ -1,6 +1,16 @@
+export const Add_Wishlist = 'wishlist/add';
+export const Remove_Wishlist = 'wishlist/remove';
 
-export const Add_Wishlist='card/addwish';
-export const Remove_Wishlist='card/removewish';
+// ✅ Action Creators
+export const addToWishlist = (productId) => ({
+  type: Add_Wishlist,
+  payload: { productId },
+});
+
+export const removeFromWishlist = (productId) => ({
+  type: Remove_Wishlist,
+  payload: { productId },
+});
 const initialstate={
   wishList:[],
 }
