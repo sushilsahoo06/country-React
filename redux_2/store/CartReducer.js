@@ -29,51 +29,62 @@ export const decreaseItemQuantity = (productId) => ({
 
 
 
-const initialstate={
-  cartItems:[],
-}
-export default function CartReducer(state=initialstate,action){
-   switch (action.type) {
+const initialstate = {
+  cartItems: [],
+};
+
+export default function CartReducer(state = initialstate, action) {
+  switch (action.type) {
     case Cart_Add_Items:
-      const existingItem=state.find(
-        (item)=>item.productId === action.payload.productId
-      )
-      if(existingItem){
-        return state.map((cartItems)=>{
-          if(cartItems.productId === existingItem.productId){
-            return {...cartItems,quantity:cartItems.quantity+1}
-          }
-          return cartItems;
-        })
+      const existingItem = state.cartItems.find(
+        (item) => item.productId === action.payload.productId
+      );
+
+      if (existingItem) {
+        return {
+          ...state,
+          cartItems: state.cartItems.map((item) =>
+            item.productId === existingItem.productId
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        };
       }
+
       return {
         ...state,
-        cartItems: [...state.cartItems, action.payload]
+        cartItems: [...state.cartItems, { ...action.payload, quantity: 1 }],
       };
+
     case Cart_Remove_Items:
-      return{
-        ...state,cartItems:state.cartItems.filter(cartItems=>cartItems.productId !==action.payload.productId)
-      }
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) => item.productId !== action.payload.productId
+        ),
+      };
+
     case Inc_Item_Quantity:
-      return{
-        ...state,cartItems:state.cartItems.map((cartItems)=>{
-          if(cartItems.productId===action.payload.productId){
-            return {...cartItems,quantity:cartItems.quantity+1}
-          }
-          return cartItems
-        })
-      }
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) =>
+          item.productId === action.payload.productId
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      };
+
     case Dec_Item_Quantity:
-      return{
-        ...state,cartItems:state.cartItems.map
-        ((cartItems)=>{
-          if(cartItems.productId===action.payload.productId){
-            return{...cartItems,quantity:cartItems.quantity-1}
-          }
-          return cartItems;
-        })
-      }
+      return {
+        ...state,
+        cartItems: state.cartItems.map((item) =>
+          item.productId === action.payload.productId
+            ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+            : item
+        ),
+      };
+
     default:
-      return state; // ✅ Always return state for unrecognized actions
+      return state;
   }
 }
