@@ -26744,7 +26744,12 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
 var _cartSvg = require("../assets/cart.svg");
 var _cartSvgDefault = parcelHelpers.interopDefault(_cartSvg);
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
 function Header() {
+    _s();
+    const cartItems = (0, _reactRedux.useSelector)((state)=>state.cartItems.cartItems);
+    console.log(cartItems);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "header-contents",
@@ -26755,12 +26760,12 @@ function Header() {
                         children: "Shopee"
                     }, void 0, false, {
                         fileName: "components/Header.js",
-                        lineNumber: 10,
+                        lineNumber: 13,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "components/Header.js",
-                    lineNumber: 9,
+                    lineNumber: 12,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -26772,35 +26777,40 @@ function Header() {
                             alt: "cart-icon"
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 13,
+                            lineNumber: 16,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "cart-items-count",
-                            children: "0"
+                            children: cartItems.reduce((accumulator, currentItem)=>accumulator + currentItem.quantity, 0)
                         }, void 0, false, {
                             fileName: "components/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 17,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "components/Header.js",
-                    lineNumber: 12,
+                    lineNumber: 15,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "components/Header.js",
-            lineNumber: 8,
+            lineNumber: 11,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "components/Header.js",
-        lineNumber: 7,
+        lineNumber: 10,
         columnNumber: 5
     }, this);
 }
+_s(Header, "sOGYiwJY+kD+ABxufRt7JbvggIE=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = Header;
 var _c;
 $RefreshReg$(_c, "Header");
@@ -26810,7 +26820,7 @@ $RefreshReg$(_c, "Header");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"61z4w","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","../assets/cart.svg":"1c3jf"}],"1c3jf":[function() {},{}],"1GRot":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","react-router-dom":"61z4w","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","../assets/cart.svg":"1c3jf","react-redux":"hbNxT"}],"1c3jf":[function() {},{}],"1GRot":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$7f1f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$7f1f.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27370,33 +27380,11 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _cartltem = require("../components/Cartltem");
 var _cartltemDefault = parcelHelpers.interopDefault(_cartltem);
 var _appCss = require("../App.css");
+var _reactRedux = require("react-redux");
+var _s = $RefreshSig$();
 function Cart() {
-    const cartItems = [
-        {
-            id: 1,
-            title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-            imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-            quantity: 1,
-            rating: 3.9,
-            price: 109.95
-        },
-        {
-            id: 2,
-            title: 'Mens Cotton Jacket',
-            imageUrl: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-            quantity: 1,
-            rating: 4.7,
-            price: 55.99
-        },
-        {
-            id: 3,
-            title: 'Mens Casual Slim Fit',
-            imageUrl: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
-            quantity: 1,
-            rating: 2.1,
-            price: 15.99
-        }
-    ];
+    _s();
+    const cartItems = (0, _reactRedux.useSelector)((state)=>state.cartItems.cartItems);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "cart-container",
         children: [
@@ -27404,7 +27392,7 @@ function Cart() {
                 children: "Items in Your Cart"
             }, void 0, false, {
                 fileName: "pages/Cart.js",
-                lineNumber: 34,
+                lineNumber: 10,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27418,7 +27406,7 @@ function Cart() {
                                 children: "Item"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 37,
+                                lineNumber: 13,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27426,7 +27414,7 @@ function Cart() {
                                 children: "Price"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 38,
+                                lineNumber: 14,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27434,7 +27422,7 @@ function Cart() {
                                 children: "Quantity"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 39,
+                                lineNumber: 15,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27442,24 +27430,24 @@ function Cart() {
                                 children: "Total"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 40,
+                                lineNumber: 16,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "pages/Cart.js",
-                        lineNumber: 36,
+                        lineNumber: 12,
                         columnNumber: 9
                     }, this),
-                    cartItems.map(({ id, title, rating, price, imageUrl, quantity })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartltemDefault.default), {
+                    cartItems.map(({ productId, title, rating, price, imageUrl, quantity })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartltemDefault.default), {
                             title: title,
                             price: price,
                             quantity: quantity,
                             imageUrl: imageUrl,
                             rating: rating
-                        }, id, false, {
+                        }, productId, false, {
                             fileName: "pages/Cart.js",
-                            lineNumber: 43,
+                            lineNumber: 19,
                             columnNumber: 11
                         }, this)),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27467,17 +27455,17 @@ function Cart() {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 53,
+                                lineNumber: 29,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 54,
+                                lineNumber: 30,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 55,
+                                lineNumber: 31,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27485,28 +27473,33 @@ function Cart() {
                                 children: "$500"
                             }, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 56,
+                                lineNumber: 32,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "pages/Cart.js",
-                        lineNumber: 52,
+                        lineNumber: 28,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "pages/Cart.js",
-                lineNumber: 35,
+                lineNumber: 11,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "pages/Cart.js",
-        lineNumber: 33,
+        lineNumber: 9,
         columnNumber: 5
     }, this);
 }
+_s(Cart, "sOGYiwJY+kD+ABxufRt7JbvggIE=", false, function() {
+    return [
+        (0, _reactRedux.useSelector)
+    ];
+});
 _c = Cart;
 var _c;
 $RefreshReg$(_c, "Cart");
@@ -27516,7 +27509,7 @@ $RefreshReg$(_c, "Cart");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","../components/Cartltem":"20yJW","../App.css":"7g3a6"}],"20yJW":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","../components/Cartltem":"20yJW","../App.css":"7g3a6","react-redux":"hbNxT"}],"20yJW":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$f58c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$f58c.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27662,23 +27655,11 @@ const reducer = (0, _redux.combineReducers)({
 const store = (0, _redux.createStore)(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 exports.default = store;
 // ✅ Dispatch using action creators
-store.dispatch((0, _cartReducer.addItemToCart)({
-    productId: 1,
-    quantity: 1
-}));
-store.dispatch((0, _cartReducer.addItemToCart)({
-    productId: 12,
-    quantity: 3
-}));
-store.dispatch((0, _cartReducer.decreaseItemQuantity)(12));
-store.dispatch((0, _cartReducer.addItemToCart)({
-    productId: 10,
-    quantity: 6
-}));
-store.dispatch((0, _cartReducer.addItemToCart)({
-    productId: 6,
-    quantity: 9
-}));
+// store.dispatch(addItemToCart({ productId: 1, quantity: 1 }));
+// store.dispatch(addItemToCart({ productId: 12, quantity: 3 }));
+// store.dispatch(decreaseItemQuantity(12));
+// store.dispatch(addItemToCart({ productId: 10, quantity: 6 }));
+// store.dispatch(addItemToCart({ productId: 6, quantity: 9 }));
 store.dispatch((0, _cartReducer.removeItemFromCart)(6));
 store.dispatch((0, _cartReducer.increaseItemQuantity)(10));
 store.dispatch((0, _wishlistReducer.addToWishlist)(10));

@@ -26,11 +26,11 @@ const store = createStore(
 export default store;
 
 // ✅ Dispatch using action creators
-store.dispatch(addItemToCart({ productId: 1, quantity: 1 }));
-store.dispatch(addItemToCart({ productId: 12, quantity: 3 }));
-store.dispatch(decreaseItemQuantity(12));
-store.dispatch(addItemToCart({ productId: 10, quantity: 6 }));
-store.dispatch(addItemToCart({ productId: 6, quantity: 9 }));
+// store.dispatch(addItemToCart({ productId: 1, quantity: 1 }));
+// store.dispatch(addItemToCart({ productId: 12, quantity: 3 }));
+// store.dispatch(decreaseItemQuantity(12));
+// store.dispatch(addItemToCart({ productId: 10, quantity: 6 }));
+// store.dispatch(addItemToCart({ productId: 6, quantity: 9 }));
 store.dispatch(removeItemFromCart(6));
 store.dispatch(increaseItemQuantity(10));
 
