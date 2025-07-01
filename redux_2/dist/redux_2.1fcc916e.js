@@ -27440,6 +27440,7 @@ function Cart() {
                         columnNumber: 9
                     }, this),
                     cartItems.map(({ productId, title, rating, price, imageUrl, quantity })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartltemDefault.default), {
+                            productId: productId,
                             title: title,
                             price: price,
                             quantity: quantity,
@@ -27455,11 +27456,6 @@ function Cart() {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
-                                lineNumber: 29,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-                                fileName: "pages/Cart.js",
                                 lineNumber: 30,
                                 columnNumber: 11
                             }, this),
@@ -27468,18 +27464,26 @@ function Cart() {
                                 lineNumber: 31,
                                 columnNumber: 11
                             }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "total",
-                                children: "$500"
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                                 fileName: "pages/Cart.js",
                                 lineNumber: 32,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "total",
+                                children: [
+                                    "$",
+                                    cartItems.reduce((accumulator, currentItem)=>accumulator + currentItem.price * currentItem.quantity, 0)
+                                ]
+                            }, void 0, true, {
+                                fileName: "pages/Cart.js",
+                                lineNumber: 33,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "pages/Cart.js",
-                        lineNumber: 28,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, this)
                 ]
@@ -27523,7 +27527,12 @@ parcelHelpers.export(exports, "default", ()=>CartItem);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-function CartItem({ title, rating, price, imageUrl, quantity }) {
+var _reactRedux = require("react-redux");
+var _cartReducer = require("../store/CartReducer");
+var _s = $RefreshSig$();
+function CartItem({ productId, title, rating, price, imageUrl, quantity }) {
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "cart-item-container",
         children: [
@@ -27535,7 +27544,7 @@ function CartItem({ title, rating, price, imageUrl, quantity }) {
                         alt: title
                     }, void 0, false, {
                         fileName: "components/Cartltem.js",
-                        lineNumber: 7,
+                        lineNumber: 10,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27544,7 +27553,7 @@ function CartItem({ title, rating, price, imageUrl, quantity }) {
                                 children: title
                             }, void 0, false, {
                                 fileName: "components/Cartltem.js",
-                                lineNumber: 9,
+                                lineNumber: 12,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27554,19 +27563,19 @@ function CartItem({ title, rating, price, imageUrl, quantity }) {
                                 ]
                             }, void 0, true, {
                                 fileName: "components/Cartltem.js",
-                                lineNumber: 10,
+                                lineNumber: 13,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "components/Cartltem.js",
-                        lineNumber: 8,
+                        lineNumber: 11,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Cartltem.js",
-                lineNumber: 6,
+                lineNumber: 9,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27577,37 +27586,39 @@ function CartItem({ title, rating, price, imageUrl, quantity }) {
                 ]
             }, void 0, true, {
                 fileName: "components/Cartltem.js",
-                lineNumber: 13,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "item-quantity",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>dispatch((0, _cartReducer.decreaseItemQuantity)(productId)),
                         children: "-"
                     }, void 0, false, {
                         fileName: "components/Cartltem.js",
-                        lineNumber: 15,
+                        lineNumber: 18,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                         children: quantity
                     }, void 0, false, {
                         fileName: "components/Cartltem.js",
-                        lineNumber: 16,
+                        lineNumber: 21,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>dispatch((0, _cartReducer.increaseItemQuantity)(productId)),
                         children: "+"
                     }, void 0, false, {
                         fileName: "components/Cartltem.js",
-                        lineNumber: 17,
+                        lineNumber: 22,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "components/Cartltem.js",
-                lineNumber: 14,
+                lineNumber: 17,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27618,16 +27629,21 @@ function CartItem({ title, rating, price, imageUrl, quantity }) {
                 ]
             }, void 0, true, {
                 fileName: "components/Cartltem.js",
-                lineNumber: 19,
+                lineNumber: 24,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "components/Cartltem.js",
-        lineNumber: 5,
+        lineNumber: 8,
         columnNumber: 5
     }, this);
 }
+_s(CartItem, "rgTLoBID190wEKCp9+G8W6F7A5M=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
 _c = CartItem;
 var _c;
 $RefreshReg$(_c, "CartItem");
@@ -27637,7 +27653,7 @@ $RefreshReg$(_c, "CartItem");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J"}],"7g3a6":[function() {},{}],"1cYaa":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fxtWM","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"35J5J","react-redux":"hbNxT","../store/CartReducer":"jYOzJ"}],"7g3a6":[function() {},{}],"1cYaa":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _redux = require("redux");
